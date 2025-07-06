@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <title>Aarthi Natarajan</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --background: #111;
+    --text-color: #ffffff;
+    --accent: #c600ff;
+    --font: 'Poppins', sans-serif;
+  }
+
+  body {
+    font-family: var(--font);
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #111;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  nav ul {
+    display: flex;
+    gap: 30px;
+  }
+
+  nav ul li a {
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  nav ul li a:hover {
+    color: var(--accent);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid var(--accent);
+    color: white;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .btn:hover {
+    background-color: var(--accent);
+    color: #111;
+  }
+
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, #ff00f2, #00e0ff);
+    animation: lightning-flow 2s linear infinite;
+    z-index: -1;
+    opacity: 0.2;
+  }
+
+  @keyframes lightning-flow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 60px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fade-in 1.2s ease forwards;
+  }
+
+  .hero-text {
+    max-width: 600px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-text h1 span {
+    color: var(--accent);
+  }
+
+  .hero-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .typing-text {
+    display: inline-block;
+    border-right: 2px solid var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--accent);
+    animation: typing 10s steps(30, end) infinite alternate;
+    width: 0;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  .hero-text p {
+    margin-bottom: 30px;
+  }
+
+  .hero-image img {
+    width: 300px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    animation: electric-glow 2s ease-in-out infinite;
+    box-shadow: 0 0 30px var(--accent);
+  }
+
+  @keyframes electric-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent);
+    }
+    50% {
+      box-shadow: 0 0 20px #ff00f2, 0 0 40px #ff00f2, 0 0 60px #ff00f2;
+    }
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+  }
+
+  .social-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+  }
+
+  .social-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    transition: color 0.3s;
+  }
+
+  .social-icon:hover {
+    color: #8e00b3;
+  }
+
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 80px 60px;
+    align-items: center;
+    gap: 60px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fade-in 1.2s ease forwards 0.5s;
+  }
+
+  .about-image img {
+    width: 250px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    animation: electric-glow 2s ease-in-out infinite;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+
+  .skills-section,
+  .education,
+  .projects,
+  .hobbies,
+  .contact {
+    padding: 80px 60px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fade-in 1.2s ease forwards;
+  }
+
+  .skills-section h2 span,
+  .education h2 span,
+  .projects h2 span,
+  .hobbies h2 span,
+  .contact h2 span {
+    color: var(--accent);
+  }
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .skills-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(198, 0, 255, 0.4);
+    transition: transform 0.4s ease;
+  }
+
+  .skills-image img:hover {
+    transform: scale(1.05);
+  }
+
+  .skills-list {
+    text-align: left;
+    margin-top: 30px;
+  }
+
+  .skills-list li {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid var(--accent);
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.5s ease forwards;
+    animation-delay: calc(var(--i) * 0.1s);
+  }
+
+  @keyframes slideIn {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .skills-list li:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateX(10px);
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+  }
+
+  .edu-box {
+    background: #1a1a1a;
+    border: 2px solid var(--accent);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #c600ff66;
+  }
+
+  .edu-box h3 {
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+
+  .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .project-box {
+    background-color: #1a1a1a;
+    border: 2px solid var(--accent);
+    padding: 30px;
+    width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px #c600ff66;
+  }
+
+  .project-box h3 {
+    color: var(--accent);
+    margin-bottom: 15px;
+  }
+
+  .project-box p {
+    color: #eee;
+    margin-bottom: 20px;
+  }
+
+  .hobbies ul,
+  .languages ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+  }
+
+  /* Lightning background animation */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(198, 0, 255, 0.05) 0%, transparent 80%);
+    animation: pulse 5s infinite;
+    z-index: 0;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.6;
+    }
+  }
+
+/* Extra Mobile Tweaks */
+@media (max-width: 600px) {
+  .hero,
+  .about {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero-image img,
+  .about-image img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .skills-list,
+  .hobbies ul,
+  .languages ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .skills-list li,
+  .hobbies li,
+  .languages li {
+    width: 100%;
+  }
+
+  .project-box,
+  .edu-box {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto 20px;
+  }
+
+  .contact-box {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+  }
+
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  .typing-text {
+    animation: none;
+    width: auto;
+    border: none;
+  }
+}
+
+  
+</style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Aarthi <span>Natarajan</span></div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+  
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hello, I'm <span>Aarthi Natarajan</span></h1>
+      <h2><span class="typing-text">I'm a Full Stack Python Developer</span></h2>
+      <p>Hi! i'm Aarthi Natarajan, a passinate full stack python developer specializing<br> in translating design concepts into seamless and interative web experiences<br>
+        using HTML,CSS,Python,Django</p>
+      
+      <div class="hero-cta">
+        <a href="Aarthi Natarajan.pdf.pdf" class="btn">Download CV</a>
+        <div class="social-links">
+          <a href="https://github.com/Aarunatarajan" target="_blank" class="social-icon github">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aarthi-natarajan-3b0471364?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "target="_blank" class="social-icon linkedin">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="WhatsApp Image 2025-07-04 at 9.48.30 PM.jpeg" alt="Aarthi Natarajan" />
+    </div>
+  </section>
+
+<!-- About -->
+<section id="about" style="display: flex; flex-wrap: wrap; align-items: center; gap: 60px; padding: 80px 60px; background: #111;">
+  
+  <!-- Image Column -->
+  <div style="flex: 1; text-align: center;">
+    <img src="WhatsApp Image 2025-07-04 at 9.48.27 PM.jpeg" alt="About Me" style="width: 260px; border-radius: 50%; border: 4px solid #c600ff; box-shadow: 0 0 25px #c600ff;">
+  </div>
+
+  <!-- Text Column with Border Box -->
+  <div style="flex: 2;">
+    <div style="border: 2px solid #c600ff; padding: 30px; border-radius: 12px; background: #1a1a1a; box-shadow: 0 0 20px rgba(198, 0, 255, 0.2); color: #eee;">
+      
+      <h2 style="font-size: 2.2rem; margin-bottom: 20px;">About <span style="color: #c600ff;">Me</span></h2>
+      
+      <p style="margin-bottom: 15px; line-height: 1.7;">
+        Hello! I’m <strong>Aarthi Natarajan</strong> — a Python developer and Mathematics graduate with a strong passion for creating practical and elegant software solutions. My academic background in mathematics has shaped the way I approach programming — with logic, precision, and a deep focus on problem-solving.
+      </p>
+      
+      <p style="margin-bottom: 15px; line-height: 1.7;">
+        I specialize in developing responsive and user-friendly websites using technologies like <strong>Python, HTML, CSS, and Django</strong>. From front-end interfaces to back-end logic, I enjoy building projects that merge technical functionality with clean design.
+      </p>
+      
+      <p style="margin-bottom: 15px; line-height: 1.7;">
+        My mathematical mindset gives me a unique edge — enabling me to break down complex problems and develop efficient solutions. I also work with <strong>Git & GitHub</strong> for version control and collaboration.
+      </p>
+      
+      <p style="margin-bottom: 15px; line-height: 1.7;">
+        I’m a curious learner, always exploring new technologies and tools. Whether working solo or in a team, I aim to build impactful, user-centered digital solutions.
+      </p>
+      
+      <p style="margin-bottom: 20px; line-height: 1.7;">
+        Outside coding, I enjoy sketching, music, and applying math to creative projects. My long-term goal is to grow as a Data Scientist and contribute to meaningful innovations.
+      </p>
+      
+      <blockquote style="font-style: italic; color: #c600ff; margin-bottom: 30px;">
+        "Mathematics taught me how to think. Programming taught me how to build."
+      </blockquote>
+      
+      <a href="#" class="btn" style="display: inline-block; padding: 10px 25px; border: 2px solid #c600ff; color: white; border-radius: 8px; transition: 0.3s;">Read More</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- Skills -->
+  <section id="skills" class="skills-section">
+    <h2><span>My</span> Skills</h2>
+    <div class="skills-content">
+      <div class="skills-image">
+        <img src="skills.jpeg" alt="Skills">
+      </div><br><br>
+   <ul class="skills-list">
+  <li style="--i:1">HTML5</li>
+  <li style="--i:2">CSS3</li>
+  <li style="--i:3">Python</li>
+  <li style="--i:4">Responsive Design</li>
+  <li style="--i:5">UI/UX Design</li>
+  <li style="--i:6">C++</li>
+   <li style="--i:7">Git & GitHub</li>
+    <li style="--i:8">Rest APIs</li>
+     <li style="--i:9">Django 
+       <li style="--i:10">Backend Development</li>
+        <li style="--i:11">Mathematics</li>
+         <li style="--i:12">Communication</li>
+          <li style="--i:13">Json</li>
+           <li style="--i:14">Full stack development</li>
+            <li style="--i:15">Web Framework</li>
+     </li>
+</ul>
+    </div>
+  </section>
+
+  <!-- Education -->
+<section id="education" style="padding: 80px 60px; background: #111; text-align: center;">
+  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 50px;">
+    My <span style="color: #c600ff;">Education</span>
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+
+    <!-- Degree Box -->
+    <div style="flex: 1 1 300px; max-width: 500px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 14px; box-shadow: 0 0 20px rgba(198, 0, 255, 0.3);">
+      <h3 style="color: #c600ff; margin-bottom: 15px;">master of Mathematics</h3>
+      <p style="color: #eee;">Bharathiar University<br>2023 - 2025</p>
+      <p>Grade:83.5%</p>
+    </div>
+
+    <!-- Course Box -->
+    <div style="flex: 1 1 300px; max-width: 500px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 14px; box-shadow: 0 0 20px rgba(198, 0, 255, 0.3);">
+      <h3 style="color: #c600ff; margin-bottom: 15px;">Bachelor of Mathematics with Computer Application</h3>
+      <p style="color: #eee;">TERFs Academy College Of Arts And Science<br>2020  -2023</p>
+        <p>Grade:78.9%</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section id="projects" style="padding: 80px 60px; background: #111; color: white; text-align: center; font-family: 'Poppins', sans-serif;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 50px;">
+    My <span style="color: #c600ff;">Projects</span>
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+
+    <!-- Project 1 -->
+    <div style="flex: 1 1 300px; max-width: 500px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; box-shadow: 0 0 20px rgba(198,0,255,0.25); text-align: left;">
+      <h3 style="color: #c600ff; font-size: 1.6rem;">Employee Payroll System</h3>
+      <p style="margin: 10px 0; color: #ddd;">Full‑Stack Django & SQLite CRUD, Auth, REST API—deployed on Render & PythonAnywhere.</p>
+
+      <p style="margin: 15px 0; color: #c600ff; font-weight: bold;">🔧 Key Responsibilities:</p>
+      <ul style="padding-left: 20px; color: #ccc; margin-bottom: 20px;">
+        <li>Interactive UI with HTML5 & CSS3</li>
+        <li>Django backend & SQLite CRUD</li>
+        <li>User auth and RESTful API integration</li>
+        <li>Deployed via Render & PythonAnywhere</li>
+        <li>Version control with Git & collaboration</li>
+      </ul>
+
+      <p style="margin: 15px 0; color: #c600ff; font-weight: bold;">🧠 Skills Gained:</p>
+      <ul style="padding-left: 20px; color: #ccc;">
+        <li>Full‑Stack Web Development</li>
+        <li>Django & API Integration</li>
+        <li>Database Management & Debugging</li>
+      </ul>
+
+      <a href="https://github.com/Aarunatarajan" target="_blank" style="display: inline-block; margin-top: 20px; color: #c600ff; font-weight: bold;">🔗 View on GitHub</a>
+    </div>
+
+    <!-- Project 2 -->
+    <div style="flex: 1 1 300px; max-width: 500px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; box-shadow: 0 0 20px rgba(198,0,255,0.25); text-align: left;">
+      <h3 style="color: #c600ff; font-size: 1.6rem;">Topological Data Analysis</h3>
+      <p style="margin: 10px 0; color: #ddd;">Used algebraic topology to analyze high-dimensional data through persistence diagrams and simplicial complexes.</p>
+
+      <p style="margin: 15px 0; color: #c600ff; font-weight: bold;">🔧 Key Responsibilities:</p>
+      <ul style="padding-left: 20px; color: #ccc; margin-bottom: 20px;">
+        <li>Constructed Vietoris–Rips complexes</li>
+        <li>Computed Betti numbers & barcodes</li>
+        <li>Applied linear algebra on boundary maps</li>
+        <li>Visualized data shape (barcodes & diagrams)</li>
+      </ul>
+
+      <p style="margin: 15px 0; color: #c600ff; font-weight: bold;">🧠 Skills Gained:</p>
+      <ul style="padding-left: 20px; color: #ccc;">
+        <li>Algebraic Topology & Persistent Homology</li>
+        <li>High‑dimensional data representation</li>
+        <li>Data shape visualization</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="hobbies" style="padding: 80px 60px; background: #111; text-align: center;">
+  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 40px;">
+    My <span style="color: #c600ff;">Hobbies</span>
+  </h2>
+
+  <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0; margin: 0; list-style: none;">
+    
+    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
+      🎨 Drawing
+    </li>
+    
+    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
+      🎧 Music
+    </li>
+    
+    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
+      👩‍💻 Coding
+    </li>
+    
+    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
+      📷 Photography
+    </li>
+    
+    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
+      📝 Tamil Slogan Writing
+    </li>
+    
+    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
+      📚 Webtoon Reading
+    </li>
+
+  </ul>
+</section>
+
+
+<!-- Languages Known -->
+<section id="languages" style="padding: 80px 60px; background: #111; text-align: center;">
+  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 40px;">
+    Languages <span style="color: #c600ff;">Known</span>
+  </h2>
+
+  <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0; margin: 0; list-style: none;">
+    
+    <li style="flex: 1 1 200px; max-width: 250px; background: #1a1a1a; padding: 25px 30px; border: 2px solid #c600ff; border-radius: 12px; font-size: 1.3rem; color: white; box-shadow: 0 0 18px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
+       English
+    </li>
+    
+    <li style="flex: 1 1 200px; max-width: 250px; background: #1a1a1a; padding: 25px 30px; border: 2px solid #c600ff; border-radius: 12px; font-size: 1.3rem; color: white; box-shadow: 0 0 18px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
+  Tamil
+    </li>
+
+  </ul>
+</section>
+
+
+  <!-- Certificates -->
+  <section id="certificates" class="education">
+    <h2>My <span>Certificates</span></h2>
+    <div class="edu-box">
+      <h3>Full Stack Python Developer Internship</h3>
+      <p>GT Software College, apr 2025 - jun 2025</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+ <section id="contact" class="contact-box" style="
+  max-width:400px;
+  margin:40px auto;
+  padding:30px;
+  border:3px solid rgba(198, 0, 255, 0.4);
+  border-radius:8px;
+  text-align:center;
+  background:rgba(65, 64, 64, 0.05);
+  box-shadow:0 4px 15px rgba(198, 0, 255, 0.4);
+">
+  <h2 style="margin-bottom:20px; font-size:2rem;">
+    Contact <span style="color:rgba(198, 0, 255, 0.4);">Me</span>
+  </h2>
+  <p style="margin:12px 0; font-size:1.1rem;">
+    📞 Phone: 8754035629
+  </p>
+  <p style="margin:12px 0; font-size:1.1rem;">
+    ✉️ Email:
+    <a href="mailto:natarajanaarthi22@gmail.com" style="color:rgba(198, 0, 255, 0.4); text-decoration:none;">
+      natarajanaarthi22@gmail.com
+    </a>
+  </p>
+  <a href="mailto:natarajanaarthi22@gmail.com" class="btn" style="
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 25px;
+    background:rgba(198, 0, 255, 0.4);
+    color:#fff;
+    text-decoration:none;
+    border-radius:25px;
+    font-weight:bold;
+    box-shadow:0 0 10px rgba(198, 0, 255, 0.4);
+    transition:background 0.3s, box-shadow 0.3s, transform 0.2s;
+  " onmouseover="this.style.background='#c2538f'; this.style.boxShadow='0 0 18px #c2538f'; this.style.transform='translateY(-2px)';"
+     onmouseout="this.style.background='#9b1a69'; this.style.boxShadow='0 0 10px #9b1a69'; this.style.transform='translateY(0)';">
+    Send Email
+  </a>
+</section>
+
+</body>
+</html>
