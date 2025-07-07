@@ -430,6 +430,86 @@
 </head>
 
 <body>
+  <!-- Fun Sparkle Opening Screen -->
+<div id="fun-opening" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: radial-gradient(#1c001f, #0a0a0a);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOutFun 1.5s ease forwards 4.5s;
+  overflow: hidden;
+">
+  <!-- Sparkle Layer -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.3;
+    animation: sparkleFloat 20s linear infinite;
+    z-index: 1;
+  "></div>
+
+  <!-- Animated Emoji -->
+  <div style="
+    font-size: 3rem;
+    z-index: 2;
+    animation: bounceEmoji 1s ease infinite;
+    margin-bottom: 20px;
+  ">✨</div>
+
+  <!-- Fun Welcome Text -->
+  <h1 style="
+    z-index: 2;
+    font-size: 2.2rem;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #c600ff, #00e0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #c600ff;
+    animation: typeWelcome 3s steps(35, end), blink 0.8s step-end infinite alternate;
+    padding: 0 20px;
+  ">Welcome to Aarthi’s Sparkly World 💫</h1>
+
+  <!-- Keyframe Animations -->
+  <style>
+    @keyframes typeWelcome {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeOutFun {
+      to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
+    @keyframes sparkleFloat {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    @keyframes bounceEmoji {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+  </style>
+</div>
+
 
   <!-- Navbar -->
 <header class="navbar" style="display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background-color:#111;position:sticky;top:0;z-index:999;">
@@ -580,54 +660,47 @@
   </div>
 </section>
 
+<section id="projects" style="position: relative; padding: 100px 60px; background: linear-gradient(120deg, #0a0a0a 0%, #1c001f 100%); overflow: hidden; color: #fff; text-align: center; font-family: 'Poppins', sans-serif;">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); animation: moveSparkle 20s linear infinite; z-index: 0; pointer-events: none; opacity: 0.2;"></div>
+  
+  <h2 style="font-size: 2.8rem; margin-bottom: 50px;">My <span style="color: #c600ff;">Projects</span></h2>
 
-
-<section id="projects" style="padding: 80px 60px; background: #111; color: white; text-align: center; font-family: 'Poppins', sans-serif;">
-  <h2 style="font-size: 2.5rem; margin-bottom: 50px;">
-    My <span style="color: #c600ff;">Projects</span>
-  </h2>
-
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
-
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; position: relative; z-index: 1;">
+    
     <!-- Project 1 -->
-    <div style="flex: 1 1 300px; max-width: 500px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; box-shadow: 0 0 20px rgba(198,0,255,0.25); text-align: left;">
-      <h3 style="color: #c600ff; font-size: 1.6rem;">Employee Payroll System</h3>
-      <p style="margin: 10px 0; color: #ddd;">Full‑Stack Django & SQLite CRUD, Auth, REST API—deployed on Render & PythonAnywhere.</p>
-
-      <p style="margin: 15px 0; color: #c600ff; font-weight: bold;">🔧 Key Responsibilities:</p>
-      <ul style="padding-left: 20px; color: #ccc; margin-bottom: 20px;">
+    <div style="background-color: rgba(25, 0, 35, 0.8); border: 2px solid #c600ff; padding: 30px; width: 320px; border-radius: 16px; box-shadow: 0 0 25px rgba(198, 0, 255, 0.35); transition: transform 0.3s ease;">
+      <h3 style="color: #c600ff; font-size: 1.6rem; margin-bottom: 15px;">Employee Payroll System</h3>
+      <p style="color: #ccc; text-align: left;">Full‑Stack Django & SQLite CRUD, Auth, REST API—deployed on Render & PythonAnywhere.</p>
+      <p style="color: #c600ff; font-weight: bold; margin-top: 15px; text-align: left;">🔧 Key Responsibilities:</p>
+      <ul style="list-style: disc inside; padding-left: 0; color: #ddd; margin-bottom: 20px; text-align: left;">
         <li>Interactive UI with HTML5 & CSS3</li>
         <li>Django backend & SQLite CRUD</li>
         <li>User auth and RESTful API integration</li>
         <li>Deployed via Render & PythonAnywhere</li>
         <li>Version control with Git & collaboration</li>
       </ul>
-
-      <p style="margin: 15px 0; color: #c600ff; font-weight: bold;">🧠 Skills Gained:</p>
-      <ul style="padding-left: 20px; color: #ccc;">
+      <p style="color: #c600ff; font-weight: bold; text-align: left;">🧠 Skills Gained:</p>
+      <ul style="list-style: disc inside; padding-left: 0; color: #ddd; text-align: left;">
         <li>Full‑Stack Web Development</li>
         <li>Django & API Integration</li>
         <li>Database Management & Debugging</li>
       </ul>
-
-      <a href="https://github.com/Aarunatarajan" target="_blank" style="display: inline-block; margin-top: 20px; color: #c600ff; font-weight: bold;">🔗 View on GitHub</a>
+      <a href="https://github.com/Aarunatarajan" target="_blank" style="display: inline-block; margin-top: 15px; color: #c600ff; font-weight: bold; text-decoration: none;">🔗 View on GitHub</a>
     </div>
 
     <!-- Project 2 -->
-    <div style="flex: 1 1 300px; max-width: 500px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; box-shadow: 0 0 20px rgba(198,0,255,0.25); text-align: left;">
-      <h3 style="color: #c600ff; font-size: 1.6rem;">Topological Data Analysis</h3>
-      <p style="margin: 10px 0; color: #ddd;">Used algebraic topology to analyze high-dimensional data through persistence diagrams and simplicial complexes.</p>
-
-      <p style="margin: 15px 0; color: #c600ff; font-weight: bold;">🔧 Key Responsibilities:</p>
-      <ul style="padding-left: 20px; color: #ccc; margin-bottom: 20px;">
+    <div style="background-color: rgba(25, 0, 35, 0.8); border: 2px solid #c600ff; padding: 30px; width: 320px; border-radius: 16px; box-shadow: 0 0 25px rgba(198, 0, 255, 0.35); transition: transform 0.3s ease;">
+      <h3 style="color: #c600ff; font-size: 1.6rem; margin-bottom: 15px;">Topological Data Analysis</h3>
+      <p style="color: #ccc; text-align: left;">Used algebraic topology to analyze high-dimensional data using persistence diagrams.</p>
+      <p style="color: #c600ff; font-weight: bold; margin-top: 15px; text-align: left;">🔧 Key Responsibilities:</p>
+      <ul style="list-style: disc inside; padding-left: 0; color: #ddd; margin-bottom: 20px; text-align: left;">
         <li>Constructed Vietoris–Rips complexes</li>
         <li>Computed Betti numbers & barcodes</li>
         <li>Applied linear algebra on boundary maps</li>
         <li>Visualized data shape (barcodes & diagrams)</li>
       </ul>
-
-      <p style="margin: 15px 0; color: #c600ff; font-weight: bold;">🧠 Skills Gained:</p>
-      <ul style="padding-left: 20px; color: #ccc;">
+      <p style="color: #c600ff; font-weight: bold; text-align: left;">🧠 Skills Gained:</p>
+      <ul style="list-style: disc inside; padding-left: 0; color: #ddd; text-align: left;">
         <li>Algebraic Topology & Persistent Homology</li>
         <li>High‑dimensional data representation</li>
         <li>Data shape visualization</li>
@@ -635,8 +708,15 @@
     </div>
 
   </div>
-</section>
 
+  <!-- Sparkle Keyframe -->
+  <style>
+    @keyframes moveSparkle {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+  </style>
+</section>
 
 <section id="hobbies" style="padding: 80px 60px; background: #111; text-align: center;">
   <h2 style="font-size: 2.5rem; color: white; margin-bottom: 40px;">
@@ -670,6 +750,7 @@
     </li>
 
   </ul>
+    
 </section>
 
 
@@ -743,48 +824,75 @@
      onmouseout="this.style.background='#c600ff'; this.style.boxShadow='0 0 14px rgba(198, 0, 255, 0.5)'; this.style.transform='translateY(0)';">
     ✉️ Send Email
   </a>
+    <!-- Sparkle Animation -->
+  <style>
+    @keyframes moveSparkle {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+  </style>
 </section>
 <!-- Footer -->
-<!-- Footer -->
 <footer style="
+  position: relative;
   background-color: #1a1a1a;
   color: white;
-  padding: 40px 20px;
+  padding: 60px 20px;
   text-align: center;
   border-top: 2px solid #c600ff;
   font-family: 'Poppins', sans-serif;
+  overflow: hidden;
 ">
 
+  <!-- Sparkle Layer -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: moveSparkle 20s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.2;
+  "></div>
 
-  <!-- Icons -->
-  <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 20px;">
+  <!-- Footer Content -->
+  <div style="position: relative; z-index: 1;">
 
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/aarthi-natarajan-3b0471364?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: #c600ff; font-size: 1.6rem; transition: 0.3s;">
-      <i class="fab fa-linkedin"></i>
-    </a>
+    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 20px;">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/aarthi-natarajan-3b0471364/" target="_blank" style="color: #c600ff; font-size: 1.6rem;">
+        <i class="fab fa-linkedin"></i>
+      </a>
 
-    <!-- GitHub -->
-    <a href="https://github.com/Aarunatarajan" target="_blank" style="color: #c600ff; font-size: 1.6rem; transition: 0.3s;">
-      <i class="fab fa-github"></i>
-    </a>
+      <!-- GitHub -->
+      <a href="https://github.com/Aarunatarajan" target="_blank" style="color: #c600ff; font-size: 1.6rem;">
+        <i class="fab fa-github"></i>
+      </a>
 
-    <!-- Email -->
-    <a href="mailto:natarajanaarthi22@gmail.com" style="color: #c600ff; font-size: 1.6rem; transition: 0.3s;">
-      <i class="fas fa-envelope"></i>
-    </a>
+      <!-- Email -->
+      <a href="mailto:natarajanaarthi22@gmail.com" style="color: #c600ff; font-size: 1.6rem;">
+        <i class="fas fa-envelope"></i>
+      </a>
 
-    <!-- Phone -->
-    <a href="tel:8754035629" style="color: #c600ff; font-size: 1.6rem; transition: 0.3s;">
-      <i class="fas fa-phone"></i>
-    </a>
+      <!-- Phone -->
+      <a href="tel:8754035629" style="color: #c600ff; font-size: 1.6rem;">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
 
+    <p style="font-size: 0.95rem; color: #aaa;">© 2025 Aarthi Natarajan. All rights reserved.</p>
   </div>
 
-  <p style="font-size: 0.95rem; color: #aaa;">© 2025 Aarthi Natarajan. All rights reserved.</p>
+  <!-- Sparkle Animation -->
+  <style>
+    @keyframes moveSparkle {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+  </style>
 </footer>
-
-
 </body>
 </html>
+
 
