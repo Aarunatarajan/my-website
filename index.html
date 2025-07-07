@@ -145,12 +145,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
 <!-- Navbar -->
-<header style="background-color: #111; padding: 20px 30px; position: sticky; top: 0; z-index: 99; border-bottom: 2px solid #c600ff; box-shadow: 0 0 15px #c600ff;">
+<header id="navbar" style="
+  background-color: #111;
+  padding: 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  border-bottom: 2px solid #c600ff;
+  box-shadow: 0 0 15px #c600ff;
+  transition: all 0.3s ease;
+">
   <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
 
     <!-- Animated Name -->
     <div style="
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: bold;
       background: linear-gradient(90deg, #ff00ff, #c600ff, #00ffff);
       background-size: 300%;
@@ -159,29 +168,22 @@
       animation: nameShine 4s ease-in-out infinite;
       letter-spacing: 1px;
       font-family: 'Poppins', sans-serif;
+      flex: 1 1 100%;
+      text-align: center;
     ">
       &lt;Aarthi Natarajan&gt;
     </div>
 
-    <!-- Toggle Checkbox -->
-    <input type="checkbox" id="menu-toggle" style="display: none;">
-
-    <!-- Hamburger Icon -->
-    <label for="menu-toggle" style="cursor: pointer; color: #c600ff; font-size: 1.6rem; display: none;" id="hamburger">
-      <i class="fas fa-bars"></i>
-    </label>
-
     <!-- Nav Links -->
-    <nav id="main-nav" style="display: flex; gap: 25px; flex-wrap: wrap;">
-      <a href="#" style="color: white; text-decoration: none;">Home</a>
-      <a href="#about" style="color: white; text-decoration: none;">About</a>
-      <a href="#skills" style="color: white; text-decoration: none;">Skills</a>
-      <a href="#projects" style="color: white; text-decoration: none;">Projects</a>
-      <a href="#contact" style="color: white; text-decoration: none;">Contact</a>
+    <nav id="main-nav" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; width: 100%; margin-top: 10px;">
+      <a href="#" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
   </div>
 
-  <!-- Responsive Navbar CSS -->
   <style>
     @keyframes nameShine {
       0% { background-position: 0% }
@@ -189,28 +191,47 @@
       100% { background-position: 0% }
     }
 
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background-color: #c600ff;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #c600ff;
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
     @media (max-width: 768px) {
       #main-nav {
-        display: none;
         flex-direction: column;
-        margin-top: 20px;
+        align-items: center;
+        gap: 12px;
+        margin-top: 12px;
       }
 
-      #menu-toggle:checked + label + #main-nav {
-        display: flex;
-      }
-
-      #hamburger {
-        display: block;
-      }
-
-      header {
-        padding: 20px;
-      }
-
-      #main-nav a {
-        padding: 10px 0;
-        border-top: 1px solid #333;
+      .nav-link {
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -259,7 +280,8 @@
     gap: 30px;
   ">
 
-    <!-- Left: Text -->
+    <!--. Left: Text -->
+     <br><br>
     <div class="hero-text" style="flex: 1 1 300px; min-width: 260px;">
       <h1 style="font-size: 2.2rem;">Hello, I'm <span style="color: #c600ff;">Aarthi Natarajan</span></h1>
       <h2 style="font-size: 1.3rem; margin: 15px 0;">I'm a Full Stack Python Developer</h2>
@@ -369,7 +391,7 @@
       }
     }
   </style>
-</section>
+</section><br><br>
 <!-- About Section -->
 <section id="about" style="
   display: flex;
@@ -492,7 +514,7 @@
       }
     }
   </style>
-</section>
+</section><br><br>
 
 
 
@@ -652,7 +674,7 @@
 </section>
 
 
- <!-- Education -->
+ <!-- Education --><br><br>
 <section id="education" style="padding: 80px 60px; background: #111; text-align: center; position: relative; overflow: hidden;">
 
   <!-- Sparkle Background -->
@@ -755,7 +777,7 @@
 </section>
 
   </div>
-</section>
+</section><br><br>
 <section id="projects" style="
   position: relative;
   padding: 100px 10%;
@@ -934,7 +956,7 @@
     opacity: 0.1;
     z-index: 0;
     pointer-events: none;
-  "></div>
+  "></div><br><br>
 
   <h2 style="font-size: 2.5rem; color: white; margin-bottom: 40px; position: relative; z-index: 1;">
     My <span style="color: #c600ff;">Hobbies</span>
@@ -989,7 +1011,7 @@
       }
     }
   </style>
-</section>
+</section><br><br>
 
 <!-- Languages Known -->
 <section id="languages" style="padding: 80px 10%; background: #111; text-align: center; position: relative; overflow: hidden;">
@@ -1085,7 +1107,7 @@
       }
     }
   </style>
-</section>
+</section><br><br>
 <!-- Certificates -->
 <section id="certificates" style="padding: 80px 10%; background: #111; text-align: center; position: relative; overflow: hidden;">
 
@@ -1099,7 +1121,7 @@
     animation: sparkleMove 25s linear infinite;
     z-index: 0;
     pointer-events: none;
-  "></div>
+  "></div><br><br>
 
   <h2 style="font-size: 2.7rem; color: white; margin-bottom: 50px; position: relative; z-index: 1;">
     My <span style="color: #c600ff;">Certificates</span>
@@ -1196,7 +1218,7 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</section>
+</section><br><br>
 
 
 
@@ -1332,6 +1354,55 @@
     opacity: 0.2;
   "></div>
 
+  <!-- Footer Content -->
+  <div style="position: relative; z-index: 1;">
+    
+    <!-- Social Links -->
+    <div style="display: flex; justify-content: center; gap: 35px; flex-wrap: wrap; margin-bottom: 25px;">
+      <a href="https://www.linkedin.com/in/aarthi-natarajan-3b0471364/" target="_blank" style="color: #c600ff; font-size: 1.7rem;">
+        <i class="fab fa-linkedin"></i>
+      </a>
+
+      <a href="https://github.com/Aarunatarajan" target="_blank" style="color: #c600ff; font-size: 1.7rem;">
+        <i class="fab fa-github"></i>
+      </a>
+
+      <a href="mailto:natarajanaarthi22@gmail.com" style="color: #c600ff; font-size: 1.7rem;">
+        <i class="fas fa-envelope"></i>
+      </a>
+
+      <a href="tel:8754035629" style="color: #c600ff; font-size: 1.7rem;">
+        <i class="fas fa-phone"></i>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <p style="font-size: 0.95rem; color: #aaa;">
+      © 2025 <strong style="color: #c600ff;">Aarthi Natarajan</strong>. All rights reserved.
+    </p>
+  </div>
+
+  <!-- Sparkle Animation -->
+  <style>
+    @keyframes moveSparkle {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    @media (max-width: 768px) {
+      footer div a {
+        font-size: 1.5rem !important;
+      }
+
+      footer p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</footer>
 
 </body>
 </html>
