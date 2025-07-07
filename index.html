@@ -34,454 +34,73 @@
     text-decoration: none;
     color: inherit;
   }
-
-  @media (max-width: 768px) {
-      .menu-icon {
-        display: block !important;
-      }
-
-      nav {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 200px;
-        background-color: #1a1a1a;
-        transform: translateX(100%);
-        transition: transform 0.4s ease-in-out;
-        border-left: 2px solid #c600ff;
-        z-index: 1000;
-      }
-
-      #menu-toggle:checked ~ nav {
-        transform: translateX(0);
-      }
-
-      .nav-links {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        padding: 40px 20px !important;
-        gap: 25px !important;
-      }
-
-      .nav-links li a {
-        font-size: 1.1rem !important;
-      }
-    }
-
-  nav ul li a:hover {
-    color: var(--accent);
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 10px 25px;
-    border: 2px solid var(--accent);
-    color: white;
-    border-radius: 8px;
-    margin-top: 10px;
-    transition: 0.3s;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-  }
-
-  .btn:hover {
-    background-color: var(--accent);
-    color: #111;
-  }
-
-  .btn::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(135deg, #ff00f2, #00e0ff);
-    animation: lightning-flow 2s linear infinite;
-    z-index: -1;
-    opacity: 0.2;
-  }
-
-  @keyframes lightning-flow {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  .hero {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 100px 60px;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fade-in 1.2s ease forwards;
-  }
-
-  .hero-text {
-    max-width: 600px;
-  }
-
-  .hero-text h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-  }
-
-  .hero-text h1 span {
-    color: var(--accent);
-  }
-
-  .hero-text h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
-
-  .typing-text {
-    display: inline-block;
-    border-right: 2px solid var(--accent);
-    white-space: nowrap;
-    overflow: hidden;
-    color: var(--accent);
-    animation: typing 10s steps(30, end) infinite alternate;
-    width: 0;
-  }
-
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-
-  .hero-text p {
-    margin-bottom: 30px;
-  }
-
-  .hero-image img {
-    width: 300px;
-    border-radius: 50%;
-    border: 4px solid var(--accent);
-    animation: electric-glow 2s ease-in-out infinite;
-    box-shadow: 0 0 30px var(--accent);
-  }
-
-  @keyframes electric-glow {
-    0%, 100% {
-      box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent);
-    }
-    50% {
-      box-shadow: 0 0 20px #ff00f2, 0 0 40px #ff00f2, 0 0 60px #ff00f2;
-    }
-  }
-
-  .hero-cta {
-    display: flex;
-    align-items: center;
-  }
-
-  .social-links {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    margin-left: 1rem;
-  }
-
-  .social-icon {
-    font-size: 1.5rem;
-    color: var(--accent);
-    transition: color 0.3s;
-  }
-
-  .social-icon:hover {
-    color: #8e00b3;
-  }
-
-  .about {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 80px 60px;
-    align-items: center;
-    gap: 60px;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fade-in 1.2s ease forwards 0.5s;
-  }
-
-  .about-image img {
-    width: 250px;
-    border-radius: 50%;
-    border: 4px solid var(--accent);
-    animation: electric-glow 2s ease-in-out infinite;
-  }
-
-  .about-text h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: var(--accent);
-  }
-
-  .skills-section,
-  .education,
-  .projects,
-  .hobbies,
-  .contact {
-    padding: 80px 60px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fade-in 1.2s ease forwards;
-  }
-
-  .skills-section h2 span,
-  .education h2 span,
-  .projects h2 span,
-  .hobbies h2 span,
-  .contact h2 span {
-    color: var(--accent);
-  }
-
-  @keyframes fade-in {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .skills-image img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(198, 0, 255, 0.4);
-    transition: transform 0.4s ease;
-  }
-
-  .skills-image img:hover {
-    transform: scale(1.05);
-  }
-
-  .skills-list {
-    text-align: left;
-    margin-top: 30px;
-  }
-
-  .skills-list li {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 5px solid var(--accent);
-    border-radius: 8px;
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideIn 0.5s ease forwards;
-    animation-delay: calc(var(--i) * 0.1s);
-  }
-
-  @keyframes slideIn {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  .skills-list li:hover {
-    background: var(--accent);
-    color: white;
-    transform: translateX(10px);
-    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
-  }
-
-  .edu-box {
-    background: #1a1a1a;
-    border: 2px solid var(--accent);
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px #c600ff66;
-  }
-
-  .edu-box h3 {
-    color: var(--accent);
-    margin-bottom: 5px;
-  }
-
-  .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-  }
-
-  .project-box {
-    background-color: #1a1a1a;
-    border: 2px solid var(--accent);
-    padding: 30px;
-    width: 300px;
-    border-radius: 16px;
-    box-shadow: 0 0 20px #c600ff66;
-  }
-
-  .project-box h3 {
-    color: var(--accent);
-    margin-bottom: 15px;
-  }
-
-  .project-box p {
-    color: #eee;
-    margin-bottom: 20px;
-  }
-
-  .hobbies ul,
-  .languages ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding-top: 20px;
-  }
-
-  /* Lightning background animation */
-  body::before {
-    content: "";
-    position: fixed;
-    top: -100px;
-    left: -100px;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(198, 0, 255, 0.05) 0%, transparent 80%);
-    animation: pulse 5s infinite;
-    z-index: 0;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 0.3;
-    }
-    50% {
-      transform: scale(1.2);
-      opacity: 0.6;
-    }
-  }
-
-/* Extra Mobile Tweaks */
-@media (max-width: 600px) {
-  .hero,
-  .about {
-    flex-direction: column;
-    gap: 30px;
-    text-align: center;
-  }
-
-  .hero-image img,
-  .about-image img {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-  }
-
-  .skills-list,
-  .hobbies ul,
-  .languages ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .skills-list li,
-  .hobbies li,
-  .languages li {
-    width: 100%;
-  }
-
-  .project-box,
-  .edu-box {
-    width: 100%;
-    max-width: none;
-    margin: 0 auto 20px;
-  }
-
-  .contact-box {
-    width: calc(100% - 40px);
-    margin: 20px auto;
-  }
-
-  .navbar {
-    padding: 10px 20px;
-  }
-
-  nav ul {
-    gap: 15px;
-  }
-
-  .typing-text {
-    animation: none;
-    width: auto;
-    border: none;
-  }
-}
-
-  
 </style>
 </head>
-
-<!-- Sparkle Welcome Opening -->
+<!-- Welcome Screen -->
 <div id="fun-opening" style="
   position: fixed;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
-  background: radial-gradient(#1c001f, #0a0a0a);
+  background: radial-gradient(#0a0a0a, #1c001f);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  animation: fadeOutFun 1.5s ease forwards 4.5s;
+  animation: fadeOutFun 1s ease forwards 3.5s;
   overflow: hidden;
 ">
-  <!-- Sparkle Background -->
+
+  <!-- Sparkle Grid Background -->
   <div style="
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.25;
-    animation: sparkleMove 18s linear infinite;
+    background-image: radial-gradient(circle, #ffffff14 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: sparkleGrid 40s linear infinite;
     z-index: 1;
   "></div>
 
-  <!-- Emoji -->
+  <!-- Girly Emoji -->
   <div style="
     font-size: 3rem;
     z-index: 2;
-    animation: emojiBounce 1s ease infinite;
+    animation: emojiFloat 1.3s ease-in-out infinite;
     margin-bottom: 20px;
-  ">✨</div>
+  ">👩‍💻</div>
 
-  <!-- Typing Welcome Text -->
+  <!-- Typing Heading -->
   <h1 style="
     z-index: 2;
-    font-size: 2.2rem;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #c600ff, #00e0ff);
+    font-size: 2rem;
+    font-family: 'Poppins', monospace;
+    background: linear-gradient(135deg, #ff87f3, #c600ff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 2px solid #c600ff;
-    animation: typingWelcome 3s steps(35, end), blinkCursor 0.7s step-end infinite alternate;
+    border-right: 2px solid #ff87f3;
+    animation: typingWelcome 2.5s steps(30, end), blinkCursor 0.6s step-end infinite alternate;
     padding: 0 20px;
     text-align: center;
   ">
-    Welcome to Aarthi’s Sparkly World 💫
+    Welcome to my Portfolio
   </h1>
 
-  <!-- Animations -->
+  <!-- Tagline -->
+  <p style="
+    z-index: 2;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #ffb3ff;
+    font-style: italic;
+    text-shadow: 0 0 4px #c600ff;
+  ">
+    A creative coder with a love for design 💜
+  </p>
+
   <style>
     @keyframes typingWelcome {
       from { width: 0; }
@@ -500,40 +119,60 @@
       }
     }
 
-    @keyframes sparkleMove {
+    @keyframes sparkleGrid {
       0% { background-position: 0 0; }
       100% { background-position: 1000px 1000px; }
     }
 
-    @keyframes emojiBounce {
+    @keyframes emojiFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
 
     @media (max-width: 768px) {
       h1 {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
+      }
+
+      p {
+        font-size: 0.9rem !important;
       }
     }
   </style>
 </div>
 
+<!-- Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
- <!-- Navbar -->
-<header style="background-color: #111; padding: 20px 30px; position: sticky; top: 0; z-index: 99;">
-  <div style="display: flex; justify-content: space-between; align-items: center;">
-    <div style="color: white; font-size: 1.4rem;">Aarthi <span style="color: #c600ff;">Natarajan</span></div>
+<!-- Navbar -->
+<header style="background-color: #111; padding: 20px 30px; position: sticky; top: 0; z-index: 99; border-bottom: 2px solid #c600ff; box-shadow: 0 0 15px #c600ff;">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+
+    <!-- Animated Name -->
+    <div style="
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff00ff, #c600ff, #00ffff);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: nameShine 4s ease-in-out infinite;
+      letter-spacing: 1px;
+      font-family: 'Poppins', sans-serif;
+    ">
+      &lt;Aarthi Natarajan&gt;
+    </div>
 
     <!-- Toggle Checkbox -->
     <input type="checkbox" id="menu-toggle" style="display: none;">
 
-    <!-- Hamburger -->
+    <!-- Hamburger Icon -->
     <label for="menu-toggle" style="cursor: pointer; color: #c600ff; font-size: 1.6rem; display: none;" id="hamburger">
       <i class="fas fa-bars"></i>
     </label>
 
     <!-- Nav Links -->
-    <nav id="main-nav" style="display: flex; gap: 25px;">
+    <nav id="main-nav" style="display: flex; gap: 25px; flex-wrap: wrap;">
       <a href="#" style="color: white; text-decoration: none;">Home</a>
       <a href="#about" style="color: white; text-decoration: none;">About</a>
       <a href="#skills" style="color: white; text-decoration: none;">Skills</a>
@@ -542,334 +181,1133 @@
     </nav>
   </div>
 
+  <!-- Responsive Navbar CSS -->
   <style>
-    /* Responsive Toggle Nav */
+    @keyframes nameShine {
+      0% { background-position: 0% }
+      50% { background-position: 100% }
+      100% { background-position: 0% }
+    }
+
     @media (max-width: 768px) {
-      #hamburger {
-        display: block !important;
-      }
-
       #main-nav {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background-color: #1a1a1a;
-        flex-direction: column;
-        width: 180px;
-        padding: 20px;
-        border-left: 2px solid #c600ff;
         display: none;
+        flex-direction: column;
+        margin-top: 20px;
       }
 
-      #menu-toggle:checked ~ div #main-nav {
-        display: flex !important;
+      #menu-toggle:checked + label + #main-nav {
+        display: flex;
+      }
+
+      #hamburger {
+        display: block;
+      }
+
+      header {
+        padding: 20px;
       }
 
       #main-nav a {
         padding: 10px 0;
-        font-size: 1.1rem;
+        border-top: 1px solid #333;
       }
     }
   </style>
 </header>
 
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Hello, I'm <span>Aarthi Natarajan</span></h1>
-      <h2><span class="typing-text">I'm a Full Stack Python Developer</span></h2>
-      <p>Hi! i'm Aarthi Natarajan, a passinate full stack python developer specializing<br> in translating design concepts into seamless and interative web experiences<br>
-        using HTML,CSS,Python,Django</p>
-      
-      <div class="hero-cta">
-        <a href="Aarthi Natarajan.pdf.pdf" class="btn">Download CV</a>
-        <div class="social-links">
-          <a href="https://github.com/Aarunatarajan" target="_blank" class="social-icon github">
+
+ <!-- Hero Section -->
+<section class="hero" style="
+  display: flex;
+  justify-content: center;
+  padding: 60px 10%;
+  background-color: #0a0a0a;
+  color: white;
+  position: relative;
+  overflow: hidden;
+">
+
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.1;
+    animation: sparkleMove 40s linear infinite;
+    z-index: 0;
+  "></div>
+
+  <!-- Glowing Box Container -->
+  <div class="hero-box" style="
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #c600ff;
+    box-shadow: 0 0 25px #c600ff;
+    animation: glowBox 2s infinite alternate;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  ">
+
+    <!-- Left: Text -->
+    <div class="hero-text" style="flex: 1 1 300px; min-width: 260px;">
+      <h1 style="font-size: 2.2rem;">Hello, I'm <span style="color: #c600ff;">Aarthi Natarajan</span></h1>
+      <h2 style="font-size: 1.3rem; margin: 15px 0;">I'm a Full Stack Python Developer</h2>
+      <p style="line-height: 1.5;">
+        Hi! I'm Aarthi Natarajan, a passionate full stack python developer specializing<br>
+        in translating design concepts into seamless and interactive web experiences<br>
+        using HTML, CSS, Python, Django.
+      </p>
+
+      <div class="hero-cta" style="margin-top: 20px;">
+        <a href="Aarthi Natarajan.pdf.pdf" class="btn" style="
+          padding: 10px 20px;
+          background: #c600ff;
+          color: white;
+          border-radius: 10px;
+          text-decoration: none;
+          margin-right: 15px;
+          display: inline-block;
+        ">Download CV</a>
+
+        <div class="social-links" style="display: inline-block;">
+          <a href="https://github.com/Aarunatarajan" target="_blank" style="color: #fff; margin-right: 10px; font-size: 1.5rem;">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/aarthi-natarajan-3b0471364?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "target="_blank" class="social-icon linkedin">
+          <a href="https://www.linkedin.com/in/aarthi-natarajan-3b0471364" target="_blank" style="color: #0077b5; font-size: 1.5rem;">
             <i class="fab fa-linkedin"></i>
           </a>
         </div>
       </div>
     </div>
-    <div class="hero-image">
-      <img src="WhatsApp Image 2025-07-04 at 9.48.30 PM.jpeg" alt="Aarthi Natarajan" />
-    </div>
-  </section>
 
-<!-- About -->
-<section id="about" style="display: flex; flex-wrap: wrap; align-items: center; gap: 60px; padding: 80px 60px; background: #111;">
-  
-  <!-- Image Column -->
-  <div style="flex: 1; text-align: center;">
-    <img src="WhatsApp Image 2025-07-04 at 9.48.27 PM.jpeg" alt="About Me" style="width: 260px; border-radius: 50%; border: 4px solid #c600ff; box-shadow: 0 0 25px #c600ff;">
+    <!-- Right: Image -->
+    <div class="hero-image" style="flex: 1 1 250px; text-align: center;">
+      <img src="WhatsApp Image 2025-07-04 at 9.48.30 PM.jpeg" alt="Aarthi Natarajan" style="
+        width: 100%;
+        max-width: 250px;
+        border-radius: 50%;
+        border: 4px solid #c600ff;
+        box-shadow: 0 0 20px #c600ff;
+      " />
+    </div>
+
   </div>
 
-  <!-- Text Column with Border Box -->
-  <div style="flex: 2;">
-    <div style="border: 2px solid #c600ff; padding: 30px; border-radius: 12px; background: #1a1a1a; box-shadow: 0 0 20px rgba(198, 0, 255, 0.2); color: #eee;">
-      
-      <h2 style="font-size: 2.2rem; margin-bottom: 20px;">About <span style="color: #c600ff;">Me</span></h2>
-      
-      <p style="margin-bottom: 15px; line-height: 1.7;">
-        Hello! I’m <strong>Aarthi Natarajan</strong> — a Python developer and Mathematics graduate with a strong passion for creating practical and elegant software solutions. My academic background in mathematics has shaped the way I approach programming — with logic, precision, and a deep focus on problem-solving.
-      </p>
-      
-      <p style="margin-bottom: 15px; line-height: 1.7;">
-        I specialize in developing responsive and user-friendly websites using technologies like <strong>Python, HTML, CSS, and Django</strong>. From front-end interfaces to back-end logic, I enjoy building projects that merge technical functionality with clean design.
-      </p>
-      
-      <p style="margin-bottom: 15px; line-height: 1.7;">
-        My mathematical mindset gives me a unique edge — enabling me to break down complex problems and develop efficient solutions. I also work with <strong>Git & GitHub</strong> for version control and collaboration.
-      </p>
-      
-      <p style="margin-bottom: 15px; line-height: 1.7;">
-        I’m a curious learner, always exploring new technologies and tools. Whether working solo or in a team, I aim to build impactful, user-centered digital solutions.
-      </p>
-      
-      <p style="margin-bottom: 20px; line-height: 1.7;">
-        Outside coding, I enjoy sketching, music, and applying math to creative projects. My long-term goal is to grow as a Data Scientist and contribute to meaningful innovations.
-      </p>
-      
-      <blockquote style="font-style: italic; color: #c600ff; margin-bottom: 30px;">
-        "Mathematics taught me how to think. Programming taught me how to build."
-      </blockquote>
-      
-      <a href="#" class="btn" style="display: inline-block; padding: 10px 25px; border: 2px solid #c600ff; color: white; border-radius: 8px; transition: 0.3s;">Read More</a>
+  <!-- Animations -->
+  <style>
+    @keyframes sparkleMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    @keyframes glowBox {
+      0% {
+        box-shadow: 0 0 20px #c600ff;
+      }
+      100% {
+        box-shadow: 0 0 40px #c600ff, 0 0 15px #00ffe7 inset;
+      }
+    }
+
+    .typing-text {
+      display: inline-block;
+      overflow: hidden;
+      border-right: 2px solid #c600ff;
+      white-space: nowrap;
+      animation: typing 4s steps(30, end), blinkCursor 0.8s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blinkCursor {
+      50% { border-color: transparent; }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 30px 5%;
+      }
+
+      .hero-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .hero-text {
+        margin-bottom: 20px;
+      }
+
+      .hero-text h1 {
+        font-size: 1.7rem;
+      }
+
+      .hero-text h2 {
+        font-size: 1.1rem;
+      }
+
+      .hero-text p {
+        font-size: 0.95rem;
+      }
+
+      .hero-image img {
+        max-width: 180px;
+      }
+    }
+  </style>
+</section>
+<!-- About Section -->
+<section id="about" style="
+  display: flex;
+  justify-content: center;
+  padding: 60px 10%;
+  background-color: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+">
+
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.08;
+    animation: sparkleMove 40s linear infinite;
+    z-index: 0;
+  "></div>
+
+  <!-- Flip Card Container -->
+  <div class="flip-box" style="
+    background-color: transparent;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    perspective: 1200px;
+    z-index: 1;
+  ">
+
+    <div class="flip-inner" style="
+      position: relative;
+      width: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    " onmouseover="this.style.transform='rotateY(180deg)'" onmouseout="this.style.transform='rotateY(0deg)'">
+
+      <!-- Front Side -->
+      <div style="
+        position: relative;
+        backface-visibility: hidden;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 40px 30px;
+        border-radius: 16px;
+        border: 3px solid #c600ff;
+        box-shadow: 0 0 30px #c600ff, 0 0 20px #ff00e0 inset;
+      ">
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">About <span style="color: #c600ff;">Me</span></h2>
+        <p style="margin-bottom: 15px; line-height: 1.6;">
+          Hello! I’m <strong>Aarthi Natarajan</strong> — a Python developer and Mathematics graduate passionate about turning logic into creative solutions. With a strong foundation in problem-solving, I approach code like a puzzle.
+        </p>
+        <p style="margin-bottom: 15px; line-height: 1.6;">
+          I specialize in <strong>Python, Django, HTML, and CSS</strong>, developing clean and responsive web applications.
+        </p>
+      </div>
+
+      <!-- Back Side -->
+      <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 40px 30px;
+        border-radius: 16px;
+        border: 3px solid #c600ff;
+        box-shadow: 0 0 30px #c600ff, 0 0 20px #ff00e0 inset;
+        width: 100%;
+      ">
+        <p style="margin-bottom: 15px; line-height: 1.6;">
+          My mathematical background helps me design logical code structures. I work with <strong>Git & GitHub</strong> for collaboration.
+        </p>
+        <p style="margin-bottom: 15px; line-height: 1.6;">
+          I love learning and exploring the creative side of technology. My goal: become a <strong>Data Scientist</strong> and drive innovation.
+        </p>
+        <blockquote style="font-style: italic; color: #c600ff; margin: 20px 0;">
+          "Mathematics taught me how to think. Programming taught me how to build."
+        </blockquote>
+        <a href="#" style="
+          display: inline-block;
+          padding: 10px 25px;
+          border: 2px solid #c600ff;
+          color: white;
+          border-radius: 8px;
+          text-decoration: none;
+          transition: 0.3s;
+        ">Read More</a>
+      </div>
     </div>
   </div>
+
+  <!-- CSS Animations -->
+  <style>
+    @keyframes sparkleMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    @media (max-width: 768px) {
+      #about {
+        padding: 30px 5%;
+      }
+
+      .flip-box {
+        height: auto;
+      }
+
+      .flip-inner {
+        transform: none !important;
+      }
+
+      .flip-inner > div {
+        position: relative !important;
+        transform: none !important;
+        backface-visibility: visible !important;
+      }
+    }
+  </style>
 </section>
 
 
 
 
-  <!-- Skills -->
-  <section id="skills" class="skills-section">
-    <h2><span>My</span> Skills</h2>
-    <div class="skills-content">
-      <div class="skills-image">
-        <img src="skills.jpeg" alt="Skills">
-      </div><br><br>
-   <ul class="skills-list">
-  <li style="--i:1">HTML5</li>
-  <li style="--i:2">CSS3</li>
-  <li style="--i:3">Python</li>
-  <li style="--i:4">Responsive Design</li>
-  <li style="--i:5">UI/UX Design</li>
-  <li style="--i:6">C++</li>
-   <li style="--i:7">Git & GitHub</li>
-    <li style="--i:8">Rest APIs</li>
-     <li style="--i:9">Django 
-       <li style="--i:10">Backend Development</li>
-        <li style="--i:11">Mathematics</li>
-         <li style="--i:12">Communication</li>
-          <li style="--i:13">Json</li>
-           <li style="--i:14">Full stack development</li>
-            <li style="--i:15">Web Framework</li>
-     </li>
-</ul>
-    </div>
-  </section>
+<!-- Skills Section -->
+<section id="skills" style="
+  padding: 60px 10%;
+  background-color: #0a0a0a;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+">
 
-  <!-- Education -->
-<section id="education" style="padding: 80px 60px; background: #111; text-align: center;">
-  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 50px;">
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.08;
+    animation: sparkleMove 40s linear infinite;
+    z-index: 0;
+  "></div>
+
+  <!-- Heading -->
+  <h2 style="font-size: 2.5rem; z-index: 1; position: relative; margin-bottom: 40px;">
+    <span style="color: #c600ff;">My</span> Skills
+  </h2>
+
+  <!-- Skills Grid -->
+  <div style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  ">
+
+    <!-- Skill Boxes -->
+    <!-- Use consistent styling for each skill -->
+    <!-- Example: -->
+    <div style="flex: 1 1 180px; min-width: 140px; background: rgba(0, 0, 0, 0.6); border: 2px solid #c600ff; border-radius: 12px; box-shadow: 0 0 20px #c600ff, 0 0 10px #ff00e0 inset; padding: 20px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <i class="fab fa-css3-alt" style="font-size: 2rem; color: #007bff;"></i>
+      <p style="margin-top: 10px;">CSS3</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px; background: rgba(0, 0, 0, 0.6); border: 2px solid #c600ff; border-radius: 12px; box-shadow: 0 0 20px #c600ff, 0 0 10px #ff00e0 inset; padding: 20px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <i class="fab fa-python" style="font-size: 2rem; color: #f7e018;"></i>
+      <p style="margin-top: 10px;">Python</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-laptop-code" style="font-size: 2rem; color: #00ffe7;"></i>
+      <p>Responsive Design</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-pencil-ruler" style="font-size: 2rem; color: #f0f;"></i>
+      <p>UI/UX Design</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-code" style="font-size: 2rem; color: #ff6ec7;"></i>
+      <p>C++</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fab fa-git-alt" style="font-size: 2rem; color: #f1502f;"></i>
+      <p>Git & GitHub</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-plug" style="font-size: 2rem; color: #66ffff;"></i>
+      <p>Rest APIs</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-server" style="font-size: 2rem; color: #00ff90;"></i>
+      <p>Django</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-database" style="font-size: 2rem; color: #e3ff5d;"></i>
+      <p>Backend Development</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-brain" style="font-size: 2rem; color: #ff5ec7;"></i>
+      <p>Mathematics</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-comments" style="font-size: 2rem; color: #00e1ff;"></i>
+      <p>Communication</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-code-branch" style="font-size: 2rem; color: #ffaa00;"></i>
+      <p>JSON</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-layer-group" style="font-size: 2rem; color: #6affff;"></i>
+      <p>Full Stack Development</p>
+    </div>
+
+    <div style="flex: 1 1 180px; min-width: 140px;" class="skill-box">
+      <i class="fas fa-cubes" style="font-size: 2rem; color: #ccff00;"></i>
+      <p>Web Framework</p>
+    </div>
+  </div>
+
+  <!-- Animation + Styles -->
+  <style>
+    @keyframes sparkleMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    .skill-box {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #c600ff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #c600ff, 0 0 10px #ff00e0 inset;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .skill-box:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-box p {
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      #skills {
+        padding: 30px 5%;
+      }
+
+      #skills h2 {
+        font-size: 1.8rem;
+      }
+
+      .skill-box {
+        flex: 1 1 45%;
+      }
+    }
+  </style>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</section>
+
+
+ <!-- Education -->
+<section id="education" style="padding: 80px 60px; background: #111; text-align: center; position: relative; overflow: hidden;">
+
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.08;
+    animation: sparkleScroll 40s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  "></div>
+
+  <!-- Section Heading -->
+  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 50px; position: relative; z-index: 1;">
     My <span style="color: #c600ff;">Education</span>
   </h2>
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+  <!-- Education Boxes -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; position: relative; z-index: 1;">
 
-    <!-- Degree Box -->
-    <div style="flex: 1 1 300px; max-width: 500px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 14px; box-shadow: 0 0 20px rgba(198, 0, 255, 0.3);">
-      <h3 style="color: #c600ff; margin-bottom: 15px;">master of Mathematics</h3>
-      <p style="color: #eee;">Bharathiar University<br>2023 - 2025</p>
-      <p>Grade:83.5%</p>
+    <!-- Degree 1 -->
+    <div style="
+      flex: 1 1 300px;
+      max-width: 500px;
+      background: #000;
+      padding: 30px;
+      border: 2px solid #c600ff;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(198, 0, 255, 0.4);
+      color: #eee;
+      animation: fadeInUp 1s ease forwards;
+      transition: transform 0.3s ease;
+    " onmouseover="this.style.animation='vibrate 0.2s linear infinite'" onmouseout="this.style.animation='none'">
+      <h3 style="color: #c600ff; margin-bottom: 15px;">🎓 Master of Mathematics</h3>
+      <p>Bharathiar University<br>2023 - 2025</p>
+      <div style="margin-top: 20px; padding: 10px; background: #111; border: 1px dashed #c600ff; display: inline-block; border-radius: 8px;">
+        📊 Grade: <strong style="color: #c600ff;">83.5%</strong>
+      </div>
     </div>
 
-    <!-- Course Box -->
-    <div style="flex: 1 1 300px; max-width: 500px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 14px; box-shadow: 0 0 20px rgba(198, 0, 255, 0.3);">
-      <h3 style="color: #c600ff; margin-bottom: 15px;">Bachelor of Mathematics with Computer Application</h3>
-      <p style="color: #eee;">TERFs Academy College Of Arts And Science<br>2020  -2023</p>
-        <p>Grade:78.9%</p>
+    <!-- Degree 2 -->
+    <div style="
+      flex: 1 1 300px;
+      max-width: 500px;
+      background: #000;
+      padding: 30px;
+      border: 2px solid #c600ff;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(198, 0, 255, 0.4);
+      color: #eee;
+      animation: fadeInUp 1s ease 0.3s forwards;
+      transition: transform 0.3s ease;
+    " onmouseover="this.style.animation='vibrate 0.2s linear infinite'" onmouseout="this.style.animation='none'">
+      <h3 style="color: #c600ff; margin-bottom: 15px;">🎓 Bachelor of Mathematics with Computer Application</h3>
+      <p>TERFs Academy College Of Arts And Science<br>2020 - 2023</p>
+      <div style="margin-top: 20px; padding: 10px; background: #111; border: 1px dashed #c600ff; display: inline-block; border-radius: 8px;">
+        📊 Grade: <strong style="color: #c600ff;">78.9%</strong>
+      </div>
     </div>
 
   </div>
+
+  <!-- Animations & Media Query -->
+  <style>
+    @keyframes sparkleScroll {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes vibrate {
+      0% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(-1px, -1px); }
+      60% { transform: translate(1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+      100% { transform: translate(0); }
+    }
+
+    @media (max-width: 768px) {
+      #education {
+        padding: 40px 20px;
+      }
+
+      #education h2 {
+        font-size: 2rem;
+      }
+
+      #education div[style*="flex: 1 1"] {
+        max-width: 100%;
+      }
+    }
+  </style>
 </section>
 
-<section id="projects" style="position: relative; padding: 100px 60px; background: linear-gradient(120deg, #0a0a0a 0%, #1c001f 100%); overflow: hidden; color: #fff; text-align: center; font-family: 'Poppins', sans-serif;">
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); animation: moveSparkle 20s linear infinite; z-index: 0; pointer-events: none; opacity: 0.2;"></div>
-  
-  <h2 style="font-size: 2.8rem; margin-bottom: 50px;">My <span style="color: #c600ff;">Projects</span></h2>
+  </div>
+</section>
+<section id="projects" style="
+  position: relative;
+  padding: 100px 10%;
+  background: linear-gradient(120deg, #0a0a0a 0%, #1c001f 100%);
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+">
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; position: relative; z-index: 1;">
-    
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: moveSparkle 30s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.15;
+  "></div>
+
+  <h2 style="font-size: 2.5rem; margin-bottom: 50px; z-index: 1; position: relative;">
+    My <span style="color: #c600ff;">Projects</span>
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; position: relative; z-index: 1;">
+
     <!-- Project 1 -->
-    <div style="background-color: rgba(25, 0, 35, 0.8); border: 2px solid #c600ff; padding: 30px; width: 320px; border-radius: 16px; box-shadow: 0 0 25px rgba(198, 0, 255, 0.35); transition: transform 0.3s ease;">
-      <h3 style="color: #c600ff; font-size: 1.6rem; margin-bottom: 15px;">Employee Payroll System</h3>
+    <div style="background-color: #000; border: 2px solid #c600ff; border-radius: 16px; box-shadow: 0 0 30px #c600ff, 0 0 15px #ff00e0 inset; width: 320px; padding: 30px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-money-check-alt" style="font-size: 2.5rem; color: #00ffe7; margin-bottom: 20px;"></i>
+      <h3 style="color: #c600ff; font-size: 1.6rem;">Employee Payroll System</h3>
       <p style="color: #ccc; text-align: left;">Full‑Stack Django & SQLite CRUD, Auth, REST API—deployed on Render & PythonAnywhere.</p>
-      <p style="color: #c600ff; font-weight: bold; margin-top: 15px; text-align: left;">🔧 Key Responsibilities:</p>
-      <ul style="list-style: disc inside; padding-left: 0; color: #ddd; margin-bottom: 20px; text-align: left;">
-        <li>Interactive UI with HTML5 & CSS3</li>
-        <li>Django backend & SQLite CRUD</li>
-        <li>User auth and RESTful API integration</li>
-        <li>Deployed via Render & PythonAnywhere</li>
-        <li>Version control with Git & collaboration</li>
-      </ul>
-      <p style="color: #c600ff; font-weight: bold; text-align: left;">🧠 Skills Gained:</p>
-      <ul style="list-style: disc inside; padding-left: 0; color: #ddd; text-align: left;">
-        <li>Full‑Stack Web Development</li>
-        <li>Django & API Integration</li>
-        <li>Database Management & Debugging</li>
-      </ul>
-      <a href="https://github.com/Aarunatarajan" target="_blank" style="display: inline-block; margin-top: 15px; color: #c600ff; font-weight: bold; text-decoration: none;">🔗 View on GitHub</a>
+
+      <!-- Key Responsibilities -->
+      <div style="border: 1px dashed #c600ff; border-radius: 10px; padding: 15px; margin-top: 20px;">
+        <p style="color: #00ffe7; font-weight: bold; text-align: left;"><i class="fas fa-tools" style="margin-right: 6px;"></i>Key Responsibilities:</p>
+        <ul style="list-style: disc inside; color: #ddd; text-align: left;">
+          <li>Interactive UI with HTML5 & CSS3</li>
+          <li>Django backend & SQLite CRUD</li>
+          <li>User auth and RESTful API integration</li>
+          <li>Deployed via Render & PythonAnywhere</li>
+          <li>Version control with Git & collaboration</li>
+        </ul>
+      </div>
+
+      <!-- Skills Gained -->
+      <!-- Skills Gained Bar Graph -->
+      <div style="margin-top: 20px;">
+        <p style="color: #c600ff; font-weight: bold; text-align: left;"><i class="fas fa-brain" style="margin-right: 6px;"></i>Skills Gained:</p>
+        <div style="background: #000; border-radius: 8px; padding: 10px;">
+          <div style="margin-bottom: 10px;"><span style="color: #fff;">full stack web development</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 90%; background: #c600ff; height: 8px;"></div></div></div>
+          <div style="margin-bottom: 10px;"><span style="color: #fff;">django and API generation</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 85%; background: #c600ff; height: 8px;"></div></div></div>
+          <div><span style="color: #fff;">Database management and Debugging</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 80%; background: #c600ff; height: 8px;"></div></div></div>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div style="margin-top: 20px; text-align: left;">
+        <p style="color: #00ffe7; font-weight: bold;"><i class="fas fa-code" style="margin-right: 6px;"></i>Tech Stack:</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span class="badge">HTML5</span>
+          <span class="badge">CSS3</span>
+          <span class="badge">Django</span>
+          <span class="badge">SQLite</span>
+          <span class="badge">Git</span>
+        </div>
+      </div>
+
+      <a href="https://github.com/Aarunatarajan" target="_blank" class="project-btn">🔗 View on GitHub</a>
     </div>
 
     <!-- Project 2 -->
-    <div style="background-color: rgba(25, 0, 35, 0.8); border: 2px solid #c600ff; padding: 30px; width: 320px; border-radius: 16px; box-shadow: 0 0 25px rgba(198, 0, 255, 0.35); transition: transform 0.3s ease;">
-      <h3 style="color: #c600ff; font-size: 1.6rem; margin-bottom: 15px;">Topological Data Analysis</h3>
+    <div style="background-color: #000; border: 2px solid #c600ff; border-radius: 16px; box-shadow: 0 0 30px #c600ff, 0 0 15px #ff00e0 inset; width: 320px; padding: 30px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-shapes" style="font-size: 2.5rem; color: #00ffe7; margin-bottom: 20px;"></i>
+      <h3 style="color: #c600ff; font-size: 1.6rem;">Topological Data Analysis</h3>
       <p style="color: #ccc; text-align: left;">Used algebraic topology to analyze high-dimensional data using persistence diagrams.</p>
-      <p style="color: #c600ff; font-weight: bold; margin-top: 15px; text-align: left;">🔧 Key Responsibilities:</p>
-      <ul style="list-style: disc inside; padding-left: 0; color: #ddd; margin-bottom: 20px; text-align: left;">
-        <li>Constructed Vietoris–Rips complexes</li>
-        <li>Computed Betti numbers & barcodes</li>
-        <li>Applied linear algebra on boundary maps</li>
-        <li>Visualized data shape (barcodes & diagrams)</li>
-      </ul>
-      <p style="color: #c600ff; font-weight: bold; text-align: left;">🧠 Skills Gained:</p>
-      <ul style="list-style: disc inside; padding-left: 0; color: #ddd; text-align: left;">
-        <li>Algebraic Topology & Persistent Homology</li>
-        <li>High‑dimensional data representation</li>
-        <li>Data shape visualization</li>
-      </ul>
+
+      <!-- Key Responsibilities -->
+      <div style="border: 1px dashed #c600ff; border-radius: 10px; padding: 15px; margin-top: 20px;">
+        <p style="color: #00ffe7; font-weight: bold; text-align: left;"><i class="fas fa-tools" style="margin-right: 6px;"></i>Key Responsibilities:</p>
+        <ul style="list-style: disc inside; color: #ddd; text-align: left;">
+          <li>Constructed Vietoris–Rips complexes</li>
+          <li>Computed Betti numbers & barcodes</li>
+          <li>Applied linear algebra on boundary maps</li>
+          <li>Visualized data shape (barcodes & diagrams)</li>
+        </ul>
+      </div>
+
+      <!-- Skills Gained Bar Graph -->
+      <div style="margin-top: 20px;">
+        <p style="color: #c600ff; font-weight: bold; text-align: left;"><i class="fas fa-brain" style="margin-right: 6px;"></i>Skills Gained:</p>
+        <div style="background: #000; border-radius: 8px; padding: 10px;">
+          <div style="margin-bottom: 10px;"><span style="color: #fff;">Persistent Homology</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 90%; background: #c600ff; height: 8px;"></div></div></div>
+          <div style="margin-bottom: 10px;"><span style="color: #fff;">Algebraic Topology</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 85%; background: #c600ff; height: 8px;"></div></div></div>
+          <div><span style="color: #fff;">Data Visualization</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 80%; background: #c600ff; height: 8px;"></div></div></div>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div style="margin-top: 20px; text-align: left;">
+        <p style="color: #00ffe7; font-weight: bold;"><i class="fas fa-code" style="margin-right: 6px;"></i>Tech Stack:</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span class="badge">set</span>
+          <span class="badge">algebra</span>
+          <span class="badge">Homology Tools</span>
+        </div>
+      </div>
+
+      <a href="https://github.com/Aarunatarajan" target="_blank" class="project-btn">🔗 View on GitHub</a>
     </div>
 
   </div>
 
-  <!-- Sparkle Keyframe -->
+  <!-- Styles -->
   <style>
     @keyframes moveSparkle {
       0% { background-position: 0 0; }
       100% { background-position: 1000px 1000px; }
     }
+
+    .badge {
+      padding: 6px 12px;
+      border-radius: 25px;
+      background: #000;
+      border: 1px solid #c600ff;
+      color: #c600ff;
+      font-size: 0.85rem;
+    }
+
+    .project-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #c600ff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #c600ff;
+    }
+
+    @media (max-width: 768px) {
+      #projects {
+        padding: 60px 5%;
+      }
+
+      #projects h2 {
+        font-size: 2rem;
+      }
+
+      #projects div[style*="width: 320px"] {
+        width: 100% !important;
+      }
+    }
   </style>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </section>
 
-<section id="hobbies" style="padding: 80px 60px; background: #111; text-align: center;">
-  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 40px;">
+
+<section id="hobbies" style="padding: 80px 10%; background: #111; text-align: center; position: relative; overflow: hidden;">
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: sparkleFlow 25s linear infinite;
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+  "></div>
+
+  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 40px; position: relative; z-index: 1;">
     My <span style="color: #c600ff;">Hobbies</span>
   </h2>
 
-  <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0; margin: 0; list-style: none;">
+  <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0; margin: 0; list-style: none; position: relative; z-index: 1;">
     
-    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
-      🎨 Drawing
-    </li>
-    
-    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
-      🎧 Music
-    </li>
-    
-    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
-      👩‍💻 Coding
-    </li>
-    
-    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
-      📷 Photography
-    </li>
-    
-    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
-      📝 Tamil Slogan Writing
-    </li>
-    
-    <li style="flex: 1 1 250px; max-width: 300px; background: #1a1a1a; padding: 30px; border: 2px solid #c600ff; border-radius: 16px; color: white; font-size: 1.3rem; box-shadow: 0 0 20px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
-      📚 Webtoon Reading
-    </li>
+    <!-- Hobby Item -->
+    <li class="hobby-card">🎨 Drawing</li>
+    <li class="hobby-card">🎧 Music</li>
+    <li class="hobby-card">👩‍💻 Coding</li>
+    <li class="hobby-card">📷 Photography</li>
+    <li class="hobby-card">📝 Tamil Slogan Writing</li>
+    <li class="hobby-card">📚 Webtoon Reading</li>
 
   </ul>
-    
+
+  <!-- Styles -->
+  <style>
+    @keyframes sparkleFlow {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    .hobby-card {
+      flex: 1 1 250px;
+      max-width: 300px;
+      background: #000;
+      padding: 30px;
+      border: 2px solid #c600ff;
+      border-radius: 16px;
+      color: #fff;
+      font-size: 1.3rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(198, 0, 255, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hobby-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #c600ff, 0 0 10px #ff00ff inset;
+    }
+
+    @media (max-width: 768px) {
+      #hobbies {
+        padding: 60px 5%;
+      }
+
+      .hobby-card {
+        font-size: 1.1rem;
+        padding: 20px;
+      }
+    }
+  </style>
 </section>
 
-
 <!-- Languages Known -->
-<section id="languages" style="padding: 80px 60px; background: #111; text-align: center;">
-  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 40px;">
+<section id="languages" style="padding: 80px 10%; background: #111; text-align: center; position: relative; overflow: hidden;">
+  
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: sparkleMove 20s linear infinite;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  "></div>
+
+  <h2 style="font-size: 2.5rem; color: white; margin-bottom: 40px; position: relative; z-index: 1;">
     Languages <span style="color: #c600ff;">Known</span>
   </h2>
 
-  <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0; margin: 0; list-style: none;">
+  <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0; margin: 0; list-style: none; position: relative; z-index: 1;">
     
-    <li style="flex: 1 1 200px; max-width: 250px; background: #1a1a1a; padding: 25px 30px; border: 2px solid #c600ff; border-radius: 12px; font-size: 1.3rem; color: white; box-shadow: 0 0 18px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
-       English
+    <!-- English -->
+    <li class="language-card">
+      <div class="lang-icon">🔤</div>
+      <div class="lang-name">English</div>
     </li>
-    
-    <li style="flex: 1 1 200px; max-width: 250px; background: #1a1a1a; padding: 25px 30px; border: 2px solid #c600ff; border-radius: 12px; font-size: 1.3rem; color: white; box-shadow: 0 0 18px rgba(198, 0, 255, 0.25); transition: transform 0.3s ease;">
-  Tamil
+
+    <!-- Tamil -->
+    <li class="language-card">
+      <div class="lang-icon">🎤</div>
+      <div class="lang-name">Tamil</div>
     </li>
 
   </ul>
+
+  <!-- Styles -->
+  <style>
+    @keyframes sparkleMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    .language-card {
+      flex: 1 1 200px;
+      max-width: 250px;
+      background: #000;
+      padding: 30px 20px;
+      border: 2px solid #c600ff;
+      border-radius: 14px;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px rgba(198, 0, 255, 0.25), inset 0 0 10px rgba(198, 0, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .language-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px #c600ff, 0 0 10px #ff00ff inset;
+    }
+
+    .lang-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #00ffe7;
+      animation: pulse 2s infinite;
+    }
+
+    .lang-name {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    @media (max-width: 768px) {
+      #languages {
+        padding: 60px 5%;
+      }
+
+      .language-card {
+        font-size: 1rem;
+        padding: 20px 15px;
+      }
+
+      .lang-icon {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</section>
+<!-- Certificates -->
+<section id="certificates" style="padding: 80px 10%; background: #111; text-align: center; position: relative; overflow: hidden;">
+
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.07;
+    animation: sparkleMove 25s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  "></div>
+
+  <h2 style="font-size: 2.7rem; color: white; margin-bottom: 50px; position: relative; z-index: 1;">
+    My <span style="color: #c600ff;">Certificates</span>
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; position: relative; z-index: 1;">
+
+    <!-- Certificate Card -->
+    <div class="certificate-card">
+      <i class="fas fa-award"></i>
+      <h3>Full Stack Python Developer Internship</h3>
+      <p>GT Software College<br><span class="duration">Apr 2025 – Jun 2025</span></p>
+    </div>
+
+  </div>
+
+  <!-- Styles -->
+  <style>
+    @keyframes sparkleMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    .certificate-card {
+      background: #000;
+      border: 2px solid #c600ff;
+      border-radius: 20px;
+      padding: 40px 35px;
+      color: white;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(198, 0, 255, 0.35), inset 0 0 15px rgba(198, 0, 255, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 45px #c600ff, 0 0 18px #ff00ff inset;
+    }
+
+    .certificate-card i {
+      font-size: 3.5rem;
+      color: #00ffe7;
+      margin-bottom: 20px;
+      animation: pulse 2.5s infinite;
+    }
+
+    .certificate-card h3 {
+      font-size: 1.6rem;
+      color: #c600ff;
+      margin-bottom: 15px;
+    }
+
+    .certificate-card p {
+      font-size: 1.1rem;
+      color: #eee;
+      line-height: 1.6;
+    }
+
+    .certificate-card .duration {
+      color: #00ffe7;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      #certificates {
+        padding: 60px 5%;
+      }
+
+      .certificate-card {
+        padding: 30px 20px;
+        font-size: 1rem;
+      }
+
+      .certificate-card i {
+        font-size: 2.5rem;
+      }
+
+      .certificate-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .certificate-card p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </section>
 
 
-  <!-- Certificates -->
-  <section id="certificates" class="education">
-    <h2>My <span>Certificates</span></h2>
-    <div class="edu-box">
-      <h3>Full Stack Python Developer Internship</h3>
-      <p>GT Software College, apr 2025 - jun 2025</p>
-    </div>
-  </section>
 
 <!-- Contact -->
 <section id="contact" class="contact-box" style="
-  max-width:800px;
-  margin:60px auto;
-  padding:40px;
-  border:3px solid rgba(198, 0, 255, 0.5);
-  border-radius:16px;
-  text-align:center;
-  background:rgba(65, 64, 64, 0.1);
-  box-shadow:0 6px 25px rgba(198, 0, 255, 0.4);
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  border: 3px solid rgba(198, 0, 255, 0.5);
+  border-radius: 16px;
+  text-align: center;
+  background: rgba(10, 10, 10, 0.85);
+  box-shadow: 0 6px 25px rgba(198, 0, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  color: white;
+  font-family: 'Poppins', sans-serif;
 ">
-  <h2 style="margin-bottom:25px; font-size:2.5rem; color:white;">
-    Contact <span style="color:#c600ff;">Me</span>
+
+  <!-- Sparkle Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.08;
+    animation: moveSparkle 30s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  "></div>
+
+  <h2 style="margin-bottom: 25px; font-size: 2.5rem; position: relative; z-index: 1;">
+    Contact <span style="color: #c600ff;">Me</span>
   </h2>
 
-  <p style="margin:15px 0; font-size:1.3rem; color:#eee;">
-    📞 <strong>Phone:</strong> 8754035629
-  </p>
+  <form action="https://formspree.io/f/your-form-id" method="POST" style="position: relative; z-index: 1;">
+    <input type="text" name="name" placeholder="Your Name" required style="
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #c600ff;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+    ">
 
-  <p style="margin:15px 0; font-size:1.3rem; color:#eee;">
-    ✉️ <strong>Email:</strong>
-    <a href="mailto:natarajanaarthi22@gmail.com" style="color:#c600ff; text-decoration:none;">
-      natarajanaarthi22@gmail.com
-    </a>
-  </p>
+    <input type="email" name="email" placeholder="Your Email" required style="
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #c600ff;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+    ">
 
-  <a href="mailto:natarajanaarthi22@gmail.com" style="
-    display:inline-block;
-    margin-top:30px;
-    padding:12px 30px;
-    background:#c600ff;
-    color:#fff;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:bold;
-    box-shadow:0 0 14px rgba(198, 0, 255, 0.5);
-    transition:background 0.3s, box-shadow 0.3s, transform 0.2s;
-  " onmouseover="this.style.background='#c2538f'; this.style.boxShadow='0 0 20px #c2538f'; this.style.transform='translateY(-3px)';"
-     onmouseout="this.style.background='#c600ff'; this.style.boxShadow='0 0 14px rgba(198, 0, 255, 0.5)'; this.style.transform='translateY(0)';">
-    ✉️ Send Email
-  </a>
-    <!-- Sparkle Animation -->
+    <textarea name="message" rows="5" placeholder="Your Message" required style="
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0 20px;
+      border-radius: 8px;
+      border: 1px solid #c600ff;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+      resize: vertical;
+    "></textarea>
+
+    <button type="submit" style="
+      background: #c600ff;
+      color: #fff;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 0 14px rgba(198, 0, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    "
+    onmouseover="this.style.background='#c2538f'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 0 20px #c2538f';"
+    onmouseout="this.style.background='#c600ff'; this.style.transform='translateY(0)'; this.style.boxShadow='0 0 14px rgba(198, 0, 255, 0.5)';">
+      ✉️ Send Message
+    </button>
+  </form>
+
   <style>
     @keyframes moveSparkle {
       0% { background-position: 0 0; }
       100% { background-position: 1000px 1000px; }
     }
+
+    @media (max-width: 768px) {
+      .contact-box {
+        padding: 30px 20px;
+      }
+
+      .contact-box input,
+      .contact-box textarea {
+        font-size: 0.95rem;
+      }
+
+      .contact-box button {
+        width: 100%;
+      }
+    }
   </style>
 </section>
+
 <!-- Footer -->
 <footer style="
   position: relative;
@@ -894,41 +1332,7 @@
     opacity: 0.2;
   "></div>
 
-  <!-- Footer Content -->
-  <div style="position: relative; z-index: 1;">
 
-    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 20px;">
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/aarthi-natarajan-3b0471364/" target="_blank" style="color: #c600ff; font-size: 1.6rem;">
-        <i class="fab fa-linkedin"></i>
-      </a>
-
-      <!-- GitHub -->
-      <a href="https://github.com/Aarunatarajan" target="_blank" style="color: #c600ff; font-size: 1.6rem;">
-        <i class="fab fa-github"></i>
-      </a>
-
-      <!-- Email -->
-      <a href="mailto:natarajanaarthi22@gmail.com" style="color: #c600ff; font-size: 1.6rem;">
-        <i class="fas fa-envelope"></i>
-      </a>
-
-      <!-- Phone -->
-      <a href="tel:8754035629" style="color: #c600ff; font-size: 1.6rem;">
-        <i class="fas fa-phone"></i>
-      </a>
-    </div>
-
-    <p style="font-size: 0.95rem; color: #aaa;">© 2025 Aarthi Natarajan. All rights reserved.</p>
-  </div>
-
-  <!-- Sparkle Animation -->
-  <style>
-    @keyframes moveSparkle {
-      0% { background-position: 0 0; }
-      100% { background-position: 1000px 1000px; }
-    }
-  </style>
-</footer>
 </body>
 </html>
+
