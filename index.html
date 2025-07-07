@@ -429,8 +429,7 @@
 </style>
 </head>
 
-<body>
-  <!-- Fun Sparkle Opening Screen -->
+<!-- Sparkle Welcome Opening -->
 <div id="fun-opening" style="
   position: fixed;
   top: 0; left: 0;
@@ -444,26 +443,26 @@
   animation: fadeOutFun 1.5s ease forwards 4.5s;
   overflow: hidden;
 ">
-  <!-- Sparkle Layer -->
+  <!-- Sparkle Background -->
   <div style="
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.3;
-    animation: sparkleFloat 20s linear infinite;
+    opacity: 0.25;
+    animation: sparkleMove 18s linear infinite;
     z-index: 1;
   "></div>
 
-  <!-- Animated Emoji -->
+  <!-- Emoji -->
   <div style="
     font-size: 3rem;
     z-index: 2;
-    animation: bounceEmoji 1s ease infinite;
+    animation: emojiBounce 1s ease infinite;
     margin-bottom: 20px;
   ">✨</div>
 
-  <!-- Fun Welcome Text -->
+  <!-- Typing Welcome Text -->
   <h1 style="
     z-index: 2;
     font-size: 2.2rem;
@@ -475,18 +474,21 @@
     white-space: nowrap;
     overflow: hidden;
     border-right: 2px solid #c600ff;
-    animation: typeWelcome 3s steps(35, end), blink 0.8s step-end infinite alternate;
+    animation: typingWelcome 3s steps(35, end), blinkCursor 0.7s step-end infinite alternate;
     padding: 0 20px;
-  ">Welcome to Aarthi’s Sparkly World 💫</h1>
+    text-align: center;
+  ">
+    Welcome to Aarthi’s Sparkly World 💫
+  </h1>
 
-  <!-- Keyframe Animations -->
+  <!-- Animations -->
   <style>
-    @keyframes typeWelcome {
+    @keyframes typingWelcome {
       from { width: 0; }
       to { width: 100%; }
     }
 
-    @keyframes blink {
+    @keyframes blinkCursor {
       50% { border-color: transparent; }
     }
 
@@ -498,43 +500,79 @@
       }
     }
 
-    @keyframes sparkleFloat {
+    @keyframes sparkleMove {
       0% { background-position: 0 0; }
       100% { background-position: 1000px 1000px; }
     }
 
-    @keyframes bounceEmoji {
+    @keyframes emojiBounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.3rem !important;
+      }
     }
   </style>
 </div>
 
 
-  <!-- Navbar -->
-<header class="navbar" style="display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background-color:#111;position:sticky;top:0;z-index:999;">
-  <div class="logo" style="font-size:1.5rem;color:white;">Aarthi <span style="color:#c600ff;">Natarajan</span></div>
+ <!-- Navbar -->
+<header style="background-color: #111; padding: 20px 30px; position: sticky; top: 0; z-index: 99;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="color: white; font-size: 1.4rem;">Aarthi <span style="color: #c600ff;">Natarajan</span></div>
 
-  <!-- Hidden Menu Toggle -->
-  <input type="checkbox" id="menu-toggle" style="display:none;">
+    <!-- Toggle Checkbox -->
+    <input type="checkbox" id="menu-toggle" style="display: none;">
 
-  <!-- Hamburger Icon -->
-  <label for="menu-toggle" class="menu-icon" style="display:none;font-size:1.8rem;color:#c600ff;cursor:pointer;">
-    <i class="fas fa-bars"></i>
-  </label>
+    <!-- Hamburger -->
+    <label for="menu-toggle" style="cursor: pointer; color: #c600ff; font-size: 1.6rem; display: none;" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </label>
 
-  <!-- Navigation Links -->
-  <nav>
-    <ul class="nav-links" style="display:flex;gap:30px;list-style:none;margin:0;padding:0;">
-      <li><a href="#" style="color:white;text-decoration:none;font-weight:500;">Home</a></li>
-      <li><a href="#about" style="color:white;text-decoration:none;font-weight:500;">About</a></li>
-      <li><a href="#skills" style="color:white;text-decoration:none;font-weight:500;">Skills</a></li>
-      <li><a href="#projects" style="color:white;text-decoration:none;font-weight:500;">Projects</a></li>
-      <li><a href="#contact" style="color:white;text-decoration:none;font-weight:500;">Contact</a></li>
-    </ul>
-  </nav>
+    <!-- Nav Links -->
+    <nav id="main-nav" style="display: flex; gap: 25px;">
+      <a href="#" style="color: white; text-decoration: none;">Home</a>
+      <a href="#about" style="color: white; text-decoration: none;">About</a>
+      <a href="#skills" style="color: white; text-decoration: none;">Skills</a>
+      <a href="#projects" style="color: white; text-decoration: none;">Projects</a>
+      <a href="#contact" style="color: white; text-decoration: none;">Contact</a>
+    </nav>
+  </div>
 
-  </header>
+  <style>
+    /* Responsive Toggle Nav */
+    @media (max-width: 768px) {
+      #hamburger {
+        display: block !important;
+      }
+
+      #main-nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #1a1a1a;
+        flex-direction: column;
+        width: 180px;
+        padding: 20px;
+        border-left: 2px solid #c600ff;
+        display: none;
+      }
+
+      #menu-toggle:checked ~ div #main-nav {
+        display: flex !important;
+      }
+
+      #main-nav a {
+        padding: 10px 0;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</header>
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -894,5 +932,3 @@
 </footer>
 </body>
 </html>
-
-
