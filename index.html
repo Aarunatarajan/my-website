@@ -143,22 +143,38 @@
 
 <!-- Font Awesome CDN for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navbar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: white;
+    }
 
-<!-- Navbar -->
-<header id="navbar" style="
-  background-color: #111;
-  padding: 16px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 99;
-  border-bottom: 2px solid #c600ff;
-  box-shadow: 0 0 15px #c600ff;
-  transition: all 0.3s ease;
-">
-  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    header {
+      background-color: #111;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      border-bottom: 2px solid #c600ff;
+      box-shadow: 0 0 15px #c600ff;
+    }
 
-    <!-- Animated Name -->
-    <div style="
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
       font-size: 1.6rem;
       font-weight: bold;
       background: linear-gradient(90deg, #ff00ff, #c600ff, #00ffff);
@@ -167,35 +183,36 @@
       -webkit-text-fill-color: transparent;
       animation: nameShine 4s ease-in-out infinite;
       letter-spacing: 1px;
-      font-family: 'Poppins', sans-serif;
-      flex: 1 1 100%;
-      text-align: center;
-    ">
-      &lt;Aarthi Natarajan&gt;
-    </div>
+    }
 
-    <!-- Nav Links -->
-    <nav id="main-nav" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; width: 100%; margin-top: 10px;">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </div>
-
-  <style>
     @keyframes nameShine {
       0% { background-position: 0% }
       50% { background-position: 100% }
       100% { background-position: 0% }
     }
 
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+    }
+
+    .menu-icon div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+
     .nav-link {
       color: white;
       text-decoration: none;
       font-weight: 500;
-      font-family: 'Poppins', sans-serif;
       position: relative;
       transition: color 0.3s;
     }
@@ -223,19 +240,65 @@
     }
 
     @media (max-width: 768px) {
-      #main-nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        margin-top: 12px;
+      .menu-icon {
+        display: flex;
       }
 
-      .nav-link {
-        font-size: 1.05rem;
+      nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-top: 15px;
+      }
+
+      nav.active {
+        display: flex;
       }
     }
   </style>
-</header>
+</head>
+<body>
+
+  <header>
+    <div class="navbar-container">
+      <div class="logo">&lt;Aarthi Natarajan&gt;</div>
+
+      <!-- Hamburger Icon -->
+      <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- Nav Links -->
+    <nav id="navMenu">
+      <a href="#" class="nav-link" onclick="closeMenu()">Home</a>
+      <a href="#about" class="nav-link" onclick="closeMenu()">About</a>
+      <a href="#skills" class="nav-link" onclick="closeMenu()">Skills</a>
+      <a href="#projects" class="nav-link" onclick="closeMenu()">Projects</a>
+      <a href="#contact" class="nav-link" onclick="closeMenu()">Contact</a>
+    </nav>
+  </header>
+
+  <script>
+    const navMenu = document.getElementById('navMenu');
+
+    function toggleMenu() {
+      navMenu.classList.toggle('active');
+    }
+
+    function closeMenu() {
+      navMenu.classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>
+
+
 
 
 
@@ -800,19 +863,27 @@
     opacity: 0.15;
   "></div>
 
-  <h2 style="font-size: 2.5rem; margin-bottom: 50px; z-index: 1; position: relative;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 60px; z-index: 1; position: relative;">
     My <span style="color: #c600ff;">Projects</span>
   </h2>
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; position: relative; z-index: 1;">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 80px; position: relative; z-index: 1;">
 
     <!-- Project 1 -->
-    <div style="background-color: #000; border: 2px solid #c600ff; border-radius: 16px; box-shadow: 0 0 30px #c600ff, 0 0 15px #ff00e0 inset; width: 320px; padding: 30px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+    <div style="
+      background-color: #000;
+      border: 2px solid #c600ff;
+      border-radius: 20px;
+      box-shadow: 0 0 40px #c600ff, 0 0 15px #ff00e0 inset;
+      width: 100%;
+      max-width: 900px;
+      padding: 40px;
+      transition: transform 0.4s ease;
+    " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
       <i class="fas fa-money-check-alt" style="font-size: 2.5rem; color: #00ffe7; margin-bottom: 20px;"></i>
-      <h3 style="color: #c600ff; font-size: 1.6rem;">Employee Payroll System</h3>
-      <p style="color: #ccc; text-align: left;">Full‑Stack Django & SQLite CRUD, Auth, REST API—deployed on Render & PythonAnywhere.</p>
+      <h3 style="color: #c600ff; font-size: 1.8rem;">Employee Payroll System</h3>
+      <p style="color: #ccc; text-align: left; font-size: 1rem;">Full‑Stack Django & SQLite CRUD, Auth, REST API—deployed on Render & PythonAnywhere.</p>
 
-      <!-- Key Responsibilities -->
       <div style="border: 1px dashed #c600ff; border-radius: 10px; padding: 15px; margin-top: 20px;">
         <p style="color: #00ffe7; font-weight: bold; text-align: left;"><i class="fas fa-tools" style="margin-right: 6px;"></i>Key Responsibilities:</p>
         <ul style="list-style: disc inside; color: #ddd; text-align: left;">
@@ -824,18 +895,15 @@
         </ul>
       </div>
 
-      <!-- Skills Gained -->
-      <!-- Skills Gained Bar Graph -->
       <div style="margin-top: 20px;">
         <p style="color: #c600ff; font-weight: bold; text-align: left;"><i class="fas fa-brain" style="margin-right: 6px;"></i>Skills Gained:</p>
         <div style="background: #000; border-radius: 8px; padding: 10px;">
-          <div style="margin-bottom: 10px;"><span style="color: #fff;">full stack web development</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 90%; background: #c600ff; height: 8px;"></div></div></div>
-          <div style="margin-bottom: 10px;"><span style="color: #fff;">django and API generation</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 85%; background: #c600ff; height: 8px;"></div></div></div>
-          <div><span style="color: #fff;">Database management and Debugging</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 80%; background: #c600ff; height: 8px;"></div></div></div>
+          <div style="margin-bottom: 10px;"><span style="color: #fff;">Full Stack Web Development</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 90%; background: #c600ff; height: 8px;"></div></div></div>
+          <div style="margin-bottom: 10px;"><span style="color: #fff;">Django and API Generation</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 85%; background: #c600ff; height: 8px;"></div></div></div>
+          <div><span style="color: #fff;">Database Management and Debugging</span><div style="background: #333; border-radius: 10px; overflow: hidden;"><div style="width: 80%; background: #c600ff; height: 8px;"></div></div></div>
         </div>
       </div>
 
-      <!-- Tech Stack -->
       <div style="margin-top: 20px; text-align: left;">
         <p style="color: #00ffe7; font-weight: bold;"><i class="fas fa-code" style="margin-right: 6px;"></i>Tech Stack:</p>
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
@@ -851,12 +919,20 @@
     </div>
 
     <!-- Project 2 -->
-    <div style="background-color: #000; border: 2px solid #c600ff; border-radius: 16px; box-shadow: 0 0 30px #c600ff, 0 0 15px #ff00e0 inset; width: 320px; padding: 30px; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+    <div style="
+      background-color: #000;
+      border: 2px solid #c600ff;
+      border-radius: 20px;
+      box-shadow: 0 0 40px #c600ff, 0 0 15px #ff00e0 inset;
+      width: 100%;
+      max-width: 900px;
+      padding: 40px;
+      transition: transform 0.4s ease;
+    " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
       <i class="fas fa-shapes" style="font-size: 2.5rem; color: #00ffe7; margin-bottom: 20px;"></i>
-      <h3 style="color: #c600ff; font-size: 1.6rem;">Topological Data Analysis</h3>
-      <p style="color: #ccc; text-align: left;">Used algebraic topology to analyze high-dimensional data using persistence diagrams.</p>
+      <h3 style="color: #c600ff; font-size: 1.8rem;">Topological Data Analysis</h3>
+      <p style="color: #ccc; text-align: left; font-size: 1rem;">Used algebraic topology to analyze high-dimensional data using persistence diagrams.</p>
 
-      <!-- Key Responsibilities -->
       <div style="border: 1px dashed #c600ff; border-radius: 10px; padding: 15px; margin-top: 20px;">
         <p style="color: #00ffe7; font-weight: bold; text-align: left;"><i class="fas fa-tools" style="margin-right: 6px;"></i>Key Responsibilities:</p>
         <ul style="list-style: disc inside; color: #ddd; text-align: left;">
@@ -867,7 +943,6 @@
         </ul>
       </div>
 
-      <!-- Skills Gained Bar Graph -->
       <div style="margin-top: 20px;">
         <p style="color: #c600ff; font-weight: bold; text-align: left;"><i class="fas fa-brain" style="margin-right: 6px;"></i>Skills Gained:</p>
         <div style="background: #000; border-radius: 8px; padding: 10px;">
@@ -877,19 +952,17 @@
         </div>
       </div>
 
-      <!-- Tech Stack -->
       <div style="margin-top: 20px; text-align: left;">
         <p style="color: #00ffe7; font-weight: bold;"><i class="fas fa-code" style="margin-right: 6px;"></i>Tech Stack:</p>
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-          <span class="badge">set</span>
-          <span class="badge">algebra</span>
-          <span class="badge">Homology Tools</span>
+          <span class="badge">Set</span>
+          <span class="badge">Algebra</span>
+          <span class="badge">Homology</span>
         </div>
       </div>
 
       <a href="https://github.com/Aarunatarajan" target="_blank" class="project-btn">🔗 View on GitHub</a>
     </div>
-
   </div>
 
   <!-- Styles -->
@@ -910,8 +983,8 @@
 
     .project-btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
+      margin-top: 25px;
+      padding: 10px 25px;
       background: #c600ff;
       color: #000;
       font-weight: bold;
@@ -934,8 +1007,13 @@
         font-size: 2rem;
       }
 
-      #projects div[style*="width: 320px"] {
-        width: 100% !important;
+      #projects div[style*="max-width: 900px"] {
+        padding: 25px !important;
+      }
+
+      .project-btn {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -943,6 +1021,7 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </section>
+
 
 
 <section id="hobbies" style="padding: 80px 10%; background: #111; text-align: center; position: relative; overflow: hidden;">
