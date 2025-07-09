@@ -302,70 +302,64 @@
 
 
 
- <!-- Hero Section -->
-<section class="hero" style="
-  display: flex;
-  justify-content: center;
-  padding: 60px 10%;
-  background-color: #0a0a0a;
-  color: white;
-  position: relative;
-  overflow: hidden;
-">
 
-  <!-- Sparkle Background -->
-  <div style="
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    opacity: 0.1;
-    animation: sparkleMove 40s linear infinite;
-    z-index: 0;
-  "></div>
-
-  <!-- Glowing Box Container -->
+  <!-- Hero Content -->
   <div class="hero-box" style="
     position: relative;
     z-index: 1;
-    max-width: 900px;
     width: 100%;
+    max-width: 960px;
     padding: 30px;
     border-radius: 20px;
     border: 2px solid #c600ff;
     box-shadow: 0 0 25px #c600ff;
-    animation: glowBox 2s infinite alternate;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 30px;
+    box-sizing: border-box;
+    animation: fadeInUp 1s ease;
   ">
 
-    <!--. Left: Text -->
-     <br><br>
-    <div class="hero-text" style="flex: 1 1 300px; min-width: 260px;">
+    <!-- Left: Text -->
+    <div class="hero-text" style="flex: 1 1 300px; min-width: 0;">
       <h1 style="font-size: 2.2rem;">Hello, I'm <span style="color: #c600ff;">Aarthi Natarajan</span></h1>
-      <h2 style="font-size: 1.3rem; margin: 15px 0;">I'm a Full Stack Python Developer</h2>
-      <p style="line-height: 1.5;">
-        Hi! I'm Aarthi Natarajan, a passionate full stack python developer specializing<br>
-        in translating design concepts into seamless and interactive web experiences<br>
-        using HTML, CSS, Python, Django.
+
+      <!-- Typing Animation -->
+      <h2 class="typing" style="
+        font-size: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #c600ff;
+        width: 100%;
+        max-width: 500px;
+        animation: typing 8s steps(40, end) infinite, blink 0.7s step-end infinite;
+        margin: 15px 0;
+      ">
+        I'm a Full Stack Python Developer | Backend Enthusiast | Fast Learner
+      </h2>
+
+      <p style="line-height: 1.6; font-size: 1rem;">
+        Passionate about building full-stack web applications using<br>
+        <strong>HTML</strong>, <strong>CSS</strong>, <strong>Python</strong>, and <strong>Django</strong>.
       </p>
 
-      <div class="hero-cta" style="margin-top: 20px;">
-        <a href="Aarthi Natarajan.pdf.pdf" class="btn" style="
-          padding: 10px 20px;
+      <!-- Buttons -->
+      <div style="margin-top: 20px;">
+        <a href="Aarthi Natarajan.pdf.pdf" download style="
+          padding: 10px 25px;
           background: #c600ff;
           color: white;
           border-radius: 10px;
           text-decoration: none;
-          margin-right: 15px;
+          font-weight: bold;
           display: inline-block;
-        ">Download CV</a>
+          animation: glow 1.5s ease-in-out infinite alternate;
+        ">⬇️ Download CV</a>
 
-        <div class="social-links" style="display: inline-block;">
+        <div style="display: inline-block; margin-left: 20px;">
           <a href="https://github.com/Aarunatarajan" target="_blank" style="color: #fff; margin-right: 10px; font-size: 1.5rem;">
             <i class="fab fa-github"></i>
           </a>
@@ -377,84 +371,83 @@
     </div>
 
     <!-- Right: Image -->
-    <div class="hero-image" style="flex: 1 1 250px; text-align: center;">
+    <div class="hero-image" style="
+      flex: 1 1 250px;
+      max-width: 250px;
+      text-align: center;
+    ">
       <img src="WhatsApp Image 2025-07-04 at 9.48.30 PM.jpeg" alt="Aarthi Natarajan" style="
         width: 100%;
-        max-width: 250px;
+        max-width: 100%;
+        height: auto;
         border-radius: 50%;
         border: 4px solid #c600ff;
         box-shadow: 0 0 20px #c600ff;
       " />
     </div>
-
   </div>
 
-  <!-- Animations -->
+  <!-- CSS Animations -->
   <style>
     @keyframes sparkleMove {
       0% { background-position: 0 0; }
       100% { background-position: 1000px 1000px; }
     }
 
-    @keyframes glowBox {
-      0% {
-        box-shadow: 0 0 20px #c600ff;
-      }
-      100% {
-        box-shadow: 0 0 40px #c600ff, 0 0 15px #00ffe7 inset;
-      }
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #c600ff; }
+      to { box-shadow: 0 0 20px #ff00ea; }
     }
 
-    .typing-text {
-      display: inline-block;
-      overflow: hidden;
-      border-right: 2px solid #c600ff;
-      white-space: nowrap;
-      animation: typing 4s steps(30, end), blinkCursor 0.8s step-end infinite;
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+      0% { width: 0; }
+      50% { width: 100%; }
+      100% { width: 0; }
     }
 
-    @keyframes blinkCursor {
+    @keyframes blink {
       50% { border-color: transparent; }
     }
 
     @media (max-width: 768px) {
-      .hero {
-        padding: 30px 5%;
-      }
-
       .hero-box {
         flex-direction: column;
-        text-align: center;
         padding: 20px;
+        text-align: center;
       }
 
       .hero-text {
-        margin-bottom: 20px;
+        width: 100%;
       }
 
       .hero-text h1 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
       }
 
-      .hero-text h2 {
-        font-size: 1.1rem;
+      .typing {
+        font-size: 1rem;
+        max-width: 100%;
       }
 
       .hero-text p {
         font-size: 0.95rem;
       }
 
-      .hero-image img {
+      .hero-image {
         max-width: 180px;
+        margin: 0 auto;
       }
     }
   </style>
-</section><br><br>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</section>
 <!-- About Section -->
 <section id="about" style="
   display: flex;
